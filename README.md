@@ -10,16 +10,6 @@ Live at **https://xdcoutpost.xyz/XDC_Atlas/**
 - **Reading**: developer docs, tutorials and references from across the XDC ecosystem, with older material marked as archived. To add one, open a pull request adding an entry to `data/articles.json` (`title`, `url`, `section`, `source`, `author`, `archived`).
 - **Network status**: a live check of the public XDC RPC endpoints, run from the visitor's browser.
 
-The page is plain HTML and JavaScript. All the content lives in three JSON files:
-
-| File | What it holds |
-|---|---|
-| `data/tools.json` | Ecosystem cards and the category list |
-| `data/articles.json` | Reading list, grouped into sections |
-| `data/rpcs.json` | Public RPC endpoints to check |
-
-Edit a JSON file, commit, and GitHub Pages republishes the page. No build step.
-
 ## Add your project
 
 Open a pull request adding an entry to `data/tools.json`:
@@ -55,24 +45,7 @@ Listings are only accepted by pull request.
 
 **Claiming a listing:** if your tool is already here, add an `xdc-tool.json` with the same fields to the root of your own repo and open a PR setting `"claimed": true` on your entry.
 
-## Weekly link check
-
-`.github/workflows/check-links.yml` runs `scripts/check_links.py` every Wednesday. It checks the main link of every tool and every article:
-
-- A link that fails two weeks in a row gets `"linkStatus": "dead"` and is hidden on the page (visitors can still see it by ticking **Show archived and unreachable**). It clears itself if the link comes back.
-- Links that answer 401, 403 or 429 are listed as *blocked* but stay visible, because many sites refuse automated checkers while working fine in a browser.
-- Results go to `data/link-report.json` and the Actions run summary.
-
-You can also run it any time from the **Actions** tab (**Check links → Run workflow**).
-
 ## Logos
-
-`.github/workflows/fetch-icons.yml` runs `scripts/fetch_icons.py`. For each card it visits the project's website once, picks its best icon (the high-resolution home-screen icon most sites publish, then the web app manifest, then the ordinary favicon), resizes it to 128×128 and saves it in `icons/`. The card's `"icon"` field then points at that file, so visitors' browsers only ever load images from this site.
-
-- **First run:** open **Actions → Fetch icons → Run workflow**. It fetches icons for every card and commits them.
-- **After that:** it runs weekly and only fetches icons for new cards. Tick **refresh all** when running it by hand to re-fetch everything.
-- **Skipped:** XDC Outpost's own tools (beacon mark), official XinFin and XDC entries (XDC mark), and links to GitHub or app stores, which would only give the store's logo. Cards with no usable icon keep their coloured initials.
-- **Your own logo:** put an image in `icons/`, set `"icon": "icons/your-file.png"` and add `"iconLocked": true` so the script never replaces it.
 
 Logos belong to their owners and are shown only to identify each project. Projects can ask for theirs to be changed or removed by opening an issue.
 
