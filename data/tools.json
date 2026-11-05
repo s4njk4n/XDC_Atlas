@@ -1834,7 +1834,8 @@
       ],
       "links": {
         "app": "https://gll.one/"
-      }
+      },
+      "icon": "icons/gll-one.png"
     },
     {
       "id": "icecreamswap",
