@@ -1,0 +1,27 @@
+name: Fetch icons
+on:
+  schedule:
+    - cron: "23 4 * * 3"   # Wednesdays 04:23 UTC, after the link check
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Re-fetch icons for every card, not just new ones"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pillow
+      - run: python3 scripts/fetch_icons.py ${{ inputs.refresh && '--refresh' || '' }}
+      - name: Commit if changed
+        run: |
+          git add -A icons data/tools.json
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Fetch tool icons"
+          git push

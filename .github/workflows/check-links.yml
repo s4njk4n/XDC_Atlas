@@ -1,0 +1,21 @@
+name: Check links
+on:
+  schedule:
+    - cron: "41 2 * * 3"   # Wednesdays 02:41 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/check_links.py
+      - name: Commit if changed
+        run: |
+          if git diff --quiet; then echo "No changes"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Weekly link check" || true
+          git add data/link-report.json && git commit -m "Add link report" || true
+          git push
