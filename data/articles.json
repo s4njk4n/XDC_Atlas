@@ -1,0 +1,1345 @@
+{
+  "sections": [
+    "Start here",
+    "Smart contracts and tokens",
+    "Tutorials",
+    "APIs, SDKs and data",
+    "Running a node",
+    "Subnets",
+    "Cross-chain and stablecoins",
+    "Protocol and upgrades",
+    "Governance and standards",
+    "Ecosystem projects",
+    "Community and support"
+  ],
+  "articles": [
+    {
+      "title": "XDC Network documentation (home)",
+      "url": "https://docs.xdc.network/",
+      "section": "Start here",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Developer quick guide",
+      "url": "https://docs.xdc.network/xdcchain/developers/quick-guide/",
+      "section": "Start here",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDC architecture explained",
+      "url": "https://docs.xdc.network/learn/xdc-architecture/",
+      "section": "Start here",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Gas and fees on XDC",
+      "url": "https://docs.xdc.network/learn/gas-fees/",
+      "section": "Start here",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Glossary of XDC terms",
+      "url": "https://docs.xdc.network/learn/glossary/",
+      "section": "Start here",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Migrating from Ethereum (EVM) to XDC",
+      "url": "https://docs.xdc.network/xdcchain/evmtoxdc/",
+      "section": "Start here",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Wallet configuration (MetaMask and others)",
+      "url": "https://docs.xdc.network/xdcchain/developers/wallet-configuration/",
+      "section": "Start here",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Quick tools guide: explorers, RPCs, wallets, SDKs",
+      "url": "https://xinfin.org/quick-tools-guide",
+      "section": "Start here",
+      "source": "xinfin.org",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "Build on XDC: developer hub",
+      "url": "https://xdc.org/build",
+      "section": "Start here",
+      "source": "xdc.org",
+      "author": "XDC Foundation",
+      "archived": false
+    },
+    {
+      "title": "XDC Network tech specs",
+      "url": "https://xdc.org/network/tech-specs",
+      "section": "Start here",
+      "source": "xdc.org",
+      "author": "XDC Foundation",
+      "archived": false
+    },
+    {
+      "title": "XDC Foundation docs: community resources",
+      "url": "https://docs.xdc.org/community",
+      "section": "Start here",
+      "source": "docs.xdc.org",
+      "author": "XDC Foundation",
+      "archived": false
+    },
+    {
+      "title": "Smart contract overview",
+      "url": "https://docs.xdc.network/smartcontract/",
+      "section": "Smart contracts and tokens",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Deploying and verifying contracts (Remix, Hardhat, Brownie)",
+      "url": "https://docs.xdc.network/smartcontract/deployment-verification/",
+      "section": "Smart contracts and tokens",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Flattening contracts for verification",
+      "url": "https://docs.xdc.network/smartcontract/flattening-smart-contracts/",
+      "section": "Smart contracts and tokens",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Token standards: XRC20, XRC721, XRC404",
+      "url": "https://docs.xdc.network/smartcontract/tokens/",
+      "section": "Smart contracts and tokens",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Token and XIP standards overview",
+      "url": "https://docs.xdc.org/introduction/standards",
+      "section": "Smart contracts and tokens",
+      "source": "docs.xdc.org",
+      "author": "XDC Foundation",
+      "archived": false
+    },
+    {
+      "title": "XRC1155 multi-token standard",
+      "url": "https://github.com/XDC-Community/docs/blob/main/get-details/smart-contract-details/xrc-standards/xrc1155.md",
+      "section": "Smart contracts and tokens",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Verifying smart contracts",
+      "url": "https://github.com/XDC-Community/docs/blob/main/get-details/smart-contract-details/verifying-smart-contracts.md",
+      "section": "Smart contracts and tokens",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "How XDC differs from its Ethereum fork base",
+      "url": "https://github.com/XDC-Community/docs/blob/main/get-details/evm-compatibility/xdc-fork-details.md",
+      "section": "Smart contracts and tokens",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Automated Hardhat verification on BlocksScan",
+      "url": "https://medium.com/@blocksscanio/streamline-hardhat-smart-contract-verification-a-guide-to-automated-verification-on-blocksscan-a54c5e1d4f4a",
+      "section": "Smart contracts and tokens",
+      "source": "Medium",
+      "author": "BlocksScan",
+      "archived": false
+    },
+    {
+      "title": "How to verify XRC20 contracts on BlocksScan",
+      "url": "https://www.xdc.dev/ivan_blocksscan/how-to-verify-xrc20-smart-contracts-on-blocksscan-4dgf",
+      "section": "Smart contracts and tokens",
+      "source": "xdc.dev",
+      "author": "BlocksScan",
+      "archived": false
+    },
+    {
+      "title": "XDCScan contract verification guides",
+      "url": "https://medium.com/@openscan",
+      "section": "Smart contracts and tokens",
+      "source": "Medium",
+      "author": "OpenScan (XDCScan)",
+      "archived": false
+    },
+    {
+      "title": "Using XDC Remix",
+      "url": "https://docs.xdc.org/xdc-tools/xdc-remix",
+      "section": "Smart contracts and tokens",
+      "source": "docs.xdc.org",
+      "author": "XDC Foundation",
+      "archived": false
+    },
+    {
+      "title": "Deploy your first contract with Remix",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-deploy-your-first-smart-contract-on-the-xdc-network-using-remix.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Deploy your first contract with Hardhat",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-deploy-your-first-smart-contract-on-the-xdc-network-using-hardhat.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Deploy your first contract with Hardhat and TypeScript",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-deploy-your-first-smart-contract-on-the-xdc-network-using-hardhat-and-typescript.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Create and deploy an XRC20 token with Foundry",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-create-and-deploy-an-xrc20-token-using-foundry.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Create and deploy an XRC20 token with Hardhat",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-create-and-deploy-an-xrc20-token-using-hardhat.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Create an XRC20 token with a factory contract",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-create-an-xrc20-token-using-an-xrc20-factory-smart-contract.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Send an XRC20 transaction with ethers.js",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-send-an-xrc20-transaction-on-the-xdc-network-using-ethers.js.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Create and deploy an XRC721 NFT with Hardhat",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-create-and-deploy-an-xrc721-nft-using-hardhat.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Build a contract with OpenZeppelin and Hardhat",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/create-and-deploy-your-first-smart-contract-on-the-xdc-network-using-openzeppelin-and-hardhat.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Build a React app for XRC20 and XRC721 tokens",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-create-a-react-app-to-interact-with-xrc20-and-xrc721-tokens.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Connect a dApp to XDCPay with xdcpay-connect",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-use-xdcpay-connect-to-create-a-dapp-connected-to-xdc-network.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Migrate a dApp from Ethereum with Truffle",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-migrate-a-dapp-from-ethereum-to-the-xdc-network-using-truffle.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Migrate from Solana to XDC with Solang",
+      "url": "https://github.com/XDC-Community/docs/blob/main/learn/how-to-articles/how-to-migrate-from-solana-to-the-xdc-network-using-solang.md",
+      "section": "Tutorials",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "USDC quickstart with viem and Node.js",
+      "url": "https://docs.xdc.network/xdcchain/developers/usdc-quickstart/",
+      "section": "Tutorials",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Set up a private network on the XDC codebase",
+      "url": "https://www.hackernoon.com/how-to-set-up-a-private-blockchain-network-with-xdc-network-codebase",
+      "section": "Tutorials",
+      "source": "HackerNoon",
+      "author": "XDC community",
+      "archived": false
+    },
+    {
+      "title": "Issue a token on XDC with MyContract",
+      "url": "https://docs.xdc.org/tutorials/setting-up-your-own-token-on-xdc-network",
+      "section": "Tutorials",
+      "source": "docs.xdc.org",
+      "author": "XDC Foundation",
+      "archived": true
+    },
+    {
+      "title": "JSON-RPC API reference",
+      "url": "https://docs.xdc.network/api/json-rpc/",
+      "section": "APIs, SDKs and data",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "API overview, WebSocket and error codes",
+      "url": "https://docs.xdc.network/api/",
+      "section": "APIs, SDKs and data",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Network endpoints and XDPoS RPC methods",
+      "url": "https://docs.xdc.network/xdcchain/developers/rpc/",
+      "section": "APIs, SDKs and data",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Mainnet RPC details",
+      "url": "https://docs.xdc.network/xdcchain/developers/mainnetrpc/",
+      "section": "APIs, SDKs and data",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Apothem testnet RPC details",
+      "url": "https://docs.xdc.network/xdcchain/developers/apothemrpc/",
+      "section": "APIs, SDKs and data",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Devnet RPC details",
+      "url": "https://docs.xdc.network/xdcchain/developers/devnetrpc/",
+      "section": "APIs, SDKs and data",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDCScan API documentation",
+      "url": "https://docs.xdcscan.com/",
+      "section": "APIs, SDKs and data",
+      "source": "docs.xdcscan.com",
+      "author": "XDCScan",
+      "archived": false
+    },
+    {
+      "title": "XDCScan account API endpoints",
+      "url": "https://docs.xdcscan.com/api-endpoints/accounts",
+      "section": "APIs, SDKs and data",
+      "source": "docs.xdcscan.com",
+      "author": "XDCScan",
+      "archived": false
+    },
+    {
+      "title": "Etherscan API V2 (covers XDC with one key)",
+      "url": "https://docs.etherscan.io/etherscan-v2",
+      "section": "APIs, SDKs and data",
+      "source": "docs.etherscan.io",
+      "author": "Etherscan",
+      "archived": false
+    },
+    {
+      "title": "Data and analytics: XDCScan mainnet, testnet, devnet",
+      "url": "https://docs.xdc.network/smartcontract/data-analytics/",
+      "section": "APIs, SDKs and data",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Using XDC Explorer v2",
+      "url": "https://xdc.dev/blocksscan/mastering-xdc-blockchain-tracking-with-xdc-explorer-v2-1k46",
+      "section": "APIs, SDKs and data",
+      "source": "xdc.dev",
+      "author": "BlocksScan",
+      "archived": false
+    },
+    {
+      "title": "Python SDK",
+      "url": "https://github.com/XDC-Community/docs/blob/main/tools/sdks-and-programming/python.md",
+      "section": "APIs, SDKs and data",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Go SDK",
+      "url": "https://github.com/XDC-Community/docs/blob/main/tools/sdks-and-programming/go-sdk.md",
+      "section": "APIs, SDKs and data",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Java SDK",
+      "url": "https://github.com/XDC-Community/docs/blob/main/tools/sdks-and-programming/java.md",
+      "section": "APIs, SDKs and data",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Rust SDK",
+      "url": "https://github.com/XDC-Community/docs/blob/main/tools/sdks-and-programming/rust-sdk.md",
+      "section": "APIs, SDKs and data",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Indexing XDC with SubQuery",
+      "url": "https://github.com/XDC-Community/docs/blob/main/tools/indexers/subquery.md",
+      "section": "APIs, SDKs and data",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Tatum APIs for XDC",
+      "url": "https://github.com/XDC-Community/docs/blob/main/tools/apis-and-packages/tatum-apis.md",
+      "section": "APIs, SDKs and data",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "WalletConnect integration",
+      "url": "https://github.com/XDC-Community/docs/blob/main/get-details/wallet-integration/walletconnect.md",
+      "section": "APIs, SDKs and data",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Dwellir XDC RPC docs",
+      "url": "https://www.dwellir.com/docs/xdc-network",
+      "section": "APIs, SDKs and data",
+      "source": "dwellir.com",
+      "author": "Dwellir",
+      "archived": false
+    },
+    {
+      "title": "Node architecture",
+      "url": "https://docs.xdc.network/xdcchain/developers/node_operators/node_architecture/",
+      "section": "Running a node",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Masternode and standby node setup (bootstrap, Docker, snapshots)",
+      "url": "https://docs.xdc.network/xdcchain/developers/node_operators/masternode/",
+      "section": "Running a node",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Slashing rules",
+      "url": "https://docs.xdc.network/xdcchain/developers/node_operators/slashing/",
+      "section": "Running a node",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Rewards mechanism",
+      "url": "https://docs.xdc.network/xdcchain/rewards/",
+      "section": "Running a node",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Docker image",
+      "url": "https://docs.xdc.network/xdcchain/developers/node_operators/dockerimg/",
+      "section": "Running a node",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Set up a masternode",
+      "url": "https://xinfin.org/setup-masternode",
+      "section": "Running a node",
+      "source": "xinfin.org",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XinFin-Node: official Docker setup",
+      "url": "https://github.com/XinFinOrg/XinFin-Node",
+      "section": "Running a node",
+      "source": "GitHub",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "How to stake an XDC masternode",
+      "url": "https://github.com/XDC-Community/docs/blob/main/run-a-node/masternode/how-to-stake-an-xdc-masternode.md",
+      "section": "Running a node",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Host a masternode with Fireblocks via WalletConnect",
+      "url": "https://www.xdc.dev/xinfin_xdc_network/how-to-host-an-xdc-masternode-using-fireblocks-via-walletconnect-step-by-step-guide-4gpf",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Run your own XDPoS 2.0 private network",
+      "url": "https://docs.xdc.network/xdcchain/developers/xdposchain_privatenet/",
+      "section": "Running a node",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Subnet design and architecture",
+      "url": "https://docs.xdc.network/subnet/overview/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Subnet chain",
+      "url": "https://docs.xdc.network/subnet/components/subnet_chain/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Checkpoint smart contract",
+      "url": "https://docs.xdc.network/subnet/components/checkpoint_contract/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Relayer",
+      "url": "https://docs.xdc.network/subnet/components/relayer/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Subnet API library",
+      "url": "https://docs.xdc.network/subnet/components/api_library/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDC Zero cross-chain framework",
+      "url": "https://docs.xdc.network/subnet/components/xdc_zero/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Subswap",
+      "url": "https://docs.xdc.network/subnet/components/subswap/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Launch a subnet",
+      "url": "https://docs.xdc.network/subnet/install_guide/launch_subnet/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Multi-machine deployment",
+      "url": "https://docs.xdc.network/subnet/install_guide/multi_machines_deployment/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Exposing the subnet frontend",
+      "url": "https://docs.xdc.network/subnet/install_guide/exposing_services_frontend/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Subnet config reference",
+      "url": "https://docs.xdc.network/subnet/install_guide/config_explanation/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Common issues and troubleshooting",
+      "url": "https://docs.xdc.network/subnet/install_guide/common_issues/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Subnet FAQ",
+      "url": "https://docs.xdc.network/subnet/install_guide/faq/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Subnet UI usage guide",
+      "url": "https://docs.xdc.network/subnet/using_subnet/using_subnet/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Subnet faucet",
+      "url": "https://docs.xdc.network/subnet/using_subnet/faucet/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Upgrading a subnet",
+      "url": "https://docs.xdc.network/subnet/upgrading_subnet/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Subnet GitHub repositories",
+      "url": "https://docs.xdc.network/subnet/resources/repos/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Private subnets for enterprise",
+      "url": "https://docs.xdc.network/enterprise/private-subnets/",
+      "section": "Subnets",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDC Subnet official release and walkthrough",
+      "url": "https://xdc.org/articles/xdc-subnet-official-release",
+      "section": "Subnets",
+      "source": "xdc.org",
+      "author": "XDC Foundation",
+      "archived": false
+    },
+    {
+      "title": "XDC Subnet overview",
+      "url": "https://xinfin.org/xdc-subnet",
+      "section": "Subnets",
+      "source": "xinfin.org",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "Subnet docs site (original)",
+      "url": "https://xinfinorg.github.io/xdc-subnet-docs/",
+      "section": "Subnets",
+      "source": "GitHub Pages",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "USDC and CCTP V2 on XDC (contract addresses)",
+      "url": "https://www.circle.com/blog/now-available-usdc-cctp-v2-on-xdc-network",
+      "section": "Cross-chain and stablecoins",
+      "source": "circle.com",
+      "author": "Circle",
+      "archived": false
+    },
+    {
+      "title": "Chainlink CCIP on XDC: router and chain selector",
+      "url": "https://docs.chain.link/ccip/directory/mainnet/chain/xdc-mainnet",
+      "section": "Cross-chain and stablecoins",
+      "source": "docs.chain.link",
+      "author": "Chainlink",
+      "archived": false
+    },
+    {
+      "title": "Chainlink CCIP launch on XDC",
+      "url": "https://dev.chain.link/changelog/ccip-on-xdc",
+      "section": "Cross-chain and stablecoins",
+      "source": "dev.chain.link",
+      "author": "Chainlink",
+      "archived": false
+    },
+    {
+      "title": "LayerZero V2 on XDC: endpoint, DVN and executor addresses",
+      "url": "https://docs.layerzero.network/v2/deployments/chains/xdc",
+      "section": "Cross-chain and stablecoins",
+      "source": "docs.layerzero.network",
+      "author": "LayerZero",
+      "archived": false
+    },
+    {
+      "title": "ISO 20022 integration",
+      "url": "https://docs.xdc.network/enterprise/iso-20022/",
+      "section": "Cross-chain and stablecoins",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "RWA tokenization",
+      "url": "https://docs.xdc.network/enterprise/rwa-tokenization/",
+      "section": "Cross-chain and stablecoins",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Trade finance on XDC",
+      "url": "https://docs.xdc.network/enterprise/trade-finance/",
+      "section": "Cross-chain and stablecoins",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDPoS consensus",
+      "url": "https://docs.xdc.network/xdcchain/xdpos/",
+      "section": "Protocol and upgrades",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDPoS 2.0",
+      "url": "https://docs.xdc.network/xdcchain/xdpos2/",
+      "section": "Protocol and upgrades",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDC 2.0 (XDPoS) overview",
+      "url": "https://xinfin.org/xdpos",
+      "section": "Protocol and upgrades",
+      "source": "xinfin.org",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XDC 2.0: an overview of the consensus upgrade",
+      "url": "https://xdc.org/articles/xdc-2.0-an-overview-of-the-major-consensus-upgrade",
+      "section": "Protocol and upgrades",
+      "source": "xdc.org",
+      "author": "XDC Foundation",
+      "archived": false
+    },
+    {
+      "title": "Upgrading the XDC Network: subnets, XDC Zero and more",
+      "url": "https://xdc.org/articles/upgrading-the-xdc-network",
+      "section": "Protocol and upgrades",
+      "source": "xdc.org",
+      "author": "XDC Foundation",
+      "archived": false
+    },
+    {
+      "title": "XDPoSChain v2.6.8 \"Cancun\" release notes",
+      "url": "https://github.com/XinFinOrg/XDPoSChain/releases/tag/v2.6.8",
+      "section": "Protocol and upgrades",
+      "source": "GitHub",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XDPoSChain client source",
+      "url": "https://github.com/XinFinOrg/XDPoSChain",
+      "section": "Protocol and upgrades",
+      "source": "GitHub",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XDPoS 2.0 mainnet release: key features",
+      "url": "https://www.xdc.dev/anilchinchawale/xdpos-20-mainnet-release-key-features-and-enhancements-eeo",
+      "section": "Protocol and upgrades",
+      "source": "xdc.dev",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "EIP-1559 support on Apothem",
+      "url": "https://www.xdc.dev/xinfin_xdc_network/xdc-network-to-introduce-eip-1559-support-on-apothem-testnet-cl4",
+      "section": "Protocol and upgrades",
+      "source": "xdc.dev",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Solidity 0.8.23 integration on mainnet",
+      "url": "https://www.xdc.dev/anilchinchawale/stay-ahead-xdc-network-prepares-for-evm-0823-integration-on-xdc-mainnet-upgrade-details-inside-5nj",
+      "section": "Protocol and upgrades",
+      "source": "xdc.dev",
+      "author": "XinFin",
+      "archived": true
+    },
+    {
+      "title": "Why the Apothem testnet was rolled back",
+      "url": "https://www.xdc.dev/gzliudan/why-roll-back-testnet-2npf",
+      "section": "Protocol and upgrades",
+      "source": "xdc.dev",
+      "author": "XDC core developers",
+      "archived": false
+    },
+    {
+      "title": "Proposal: porting XDPoS to modern go-ethereum",
+      "url": "https://xdc.network/snapshots/go-ethereum/docs/XDC_GETH_PORT_PROPOSAL.md",
+      "section": "Protocol and upgrades",
+      "source": "xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "Docs announcements and upgrade notices",
+      "url": "https://docs.xdc.network/announce/",
+      "section": "Protocol and upgrades",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDC Protocol Team posts",
+      "url": "https://www.xdc.dev/protocol_team",
+      "section": "Protocol and upgrades",
+      "source": "xdc.dev",
+      "author": "XDC Protocol Team",
+      "archived": false
+    },
+    {
+      "title": "Technical white paper (PDF)",
+      "url": "https://xinfin.org/docs/whitepaper-tech.pdf",
+      "section": "Protocol and upgrades",
+      "source": "xinfin.org",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "MiCA white paper (PDF)",
+      "url": "https://xinfin.org/docs/xdc-mica-whitepaper.pdf",
+      "section": "Protocol and upgrades",
+      "source": "xinfin.org",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XDPoSChain security audit by SlowMist (PDF)",
+      "url": "https://xinfin.org/docs/reports/xdposchain-security-audit-report.pdf",
+      "section": "Protocol and upgrades",
+      "source": "xinfin.org",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XDCDAO overview",
+      "url": "https://docs.xdc.network/xdcchain/governance/overview/",
+      "section": "Governance and standards",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDCDAO: understanding the proposal window",
+      "url": "https://www.xdc.dev/0xbeny/xdcdao-understanding-the-proposal-window-39f8",
+      "section": "Governance and standards",
+      "source": "xdc.dev",
+      "author": "XDC community",
+      "archived": false
+    },
+    {
+      "title": "XDC Improvement Proposals (XIPs) repository",
+      "url": "https://github.com/XDC-Community/XIPs.github.io",
+      "section": "Governance and standards",
+      "source": "GitHub",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "How XIPs work",
+      "url": "https://github.com/XDC-Community/docs/blob/main/get-started/xips.md",
+      "section": "Governance and standards",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "XIP template and rules (forum)",
+      "url": "https://forum.xinfin.org/t/about-the-xips-category/11",
+      "section": "Governance and standards",
+      "source": "XDC Forum",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XDC DAO discussions (forum)",
+      "url": "https://forum.xinfin.org/c/xdc-dao/14",
+      "section": "Governance and standards",
+      "source": "XDC Forum",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "DAOFIN: introduction",
+      "url": "https://github.com/XDC-Community/docs/blob/main/daofin/intro.md",
+      "section": "Governance and standards",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "DAOFIN: making a proposal",
+      "url": "https://github.com/XDC-Community/docs/blob/main/daofin/MakingProposal.md",
+      "section": "Governance and standards",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "XDC tokenomics",
+      "url": "https://github.com/XDC-Community/docs/blob/main/get-started/xdc-design/tokenomics.md",
+      "section": "Governance and standards",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Prime Numbers Labs documentation",
+      "url": "https://docs.primenumbers.xyz",
+      "section": "Ecosystem projects",
+      "source": "docs.primenumbers.xyz",
+      "author": "Prime Numbers Labs",
+      "archived": false
+    },
+    {
+      "title": "PrimeStaking docs: XDC liquid staking (psXDC)",
+      "url": "https://docs.primestaking.xyz",
+      "section": "Ecosystem projects",
+      "source": "docs.primestaking.xyz",
+      "author": "Prime Numbers Labs",
+      "archived": false
+    },
+    {
+      "title": "PrimeFi lending protocol docs",
+      "url": "https://docs.primefi.xyz",
+      "section": "Ecosystem projects",
+      "source": "docs.primefi.xyz",
+      "author": "Prime Numbers Labs",
+      "archived": false
+    },
+    {
+      "title": "All you need to know about XDC liquid staking",
+      "url": "https://medium.primenumbers.xyz/all-you-need-to-know-about-xdc-liquid-staking-ef2909d0d5a6",
+      "section": "Ecosystem projects",
+      "source": "Medium",
+      "author": "Prime Numbers Labs",
+      "archived": false
+    },
+    {
+      "title": "Prime Numbers Labs on GitHub",
+      "url": "https://github.com/PrimeNumbersLabs",
+      "section": "Ecosystem projects",
+      "source": "GitHub",
+      "author": "Prime Numbers Labs",
+      "archived": false
+    },
+    {
+      "title": "XDC Innovation Labs: multi-client work (Besu, Erigon, Nethermind, Reth)",
+      "url": "https://github.com/XDCIndia",
+      "section": "Ecosystem projects",
+      "source": "GitHub",
+      "author": "XDC Innovation Labs",
+      "archived": false
+    },
+    {
+      "title": "Besu client for XDC (XDPoS v1/v2)",
+      "url": "https://github.com/XDCIndia/besu-xdc",
+      "section": "Ecosystem projects",
+      "source": "GitHub",
+      "author": "XDC Innovation Labs",
+      "archived": false
+    },
+    {
+      "title": "Plugin oracle documentation",
+      "url": "https://plugin.global/developers/docs.html",
+      "section": "Ecosystem projects",
+      "source": "plugin.global",
+      "author": "Plugin",
+      "archived": false
+    },
+    {
+      "title": "Plugin 2.0 job setup",
+      "url": "https://knowledge.plugin.global/knowledgebase/articles/plugin-2-0-job-setup",
+      "section": "Ecosystem projects",
+      "source": "plugin.global",
+      "author": "Plugin",
+      "archived": false
+    },
+    {
+      "title": "Plugin node installation (older docs)",
+      "url": "https://docs.goplugin.co/plugin-installations/how-to-install-plugin-node",
+      "section": "Ecosystem projects",
+      "source": "docs.goplugin.co",
+      "author": "Plugin",
+      "archived": true
+    },
+    {
+      "title": "Plugin how-to articles",
+      "url": "https://github.com/XDC-Community/docs/blob/main/goplugin/how-to-articles.md",
+      "section": "Ecosystem projects",
+      "source": "XDC Community docs",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Ecosystem dApps directory",
+      "url": "https://xinfin.org/ecosystem-dapps",
+      "section": "Ecosystem projects",
+      "source": "xinfin.org",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XDC developer forum",
+      "url": "https://xdc.dev",
+      "section": "Community and support",
+      "source": "xdc.dev",
+      "author": "XDC community",
+      "archived": false
+    },
+    {
+      "title": "XDC community forum",
+      "url": "https://forum.xinfin.org/",
+      "section": "Community and support",
+      "source": "XDC Forum",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "Subnet discussions (forum)",
+      "url": "https://forum.xinfin.org/tag/subnets",
+      "section": "Community and support",
+      "source": "XDC Forum",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XDC Community docs source",
+      "url": "https://github.com/XDC-Community/docs",
+      "section": "Community and support",
+      "source": "GitHub",
+      "author": "XDC Community",
+      "archived": false
+    },
+    {
+      "title": "Official docs source (edit or report issues)",
+      "url": "https://github.com/XinFinOrg/Docs",
+      "section": "Community and support",
+      "source": "GitHub",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "XinFin Open Hackathon",
+      "url": "https://github.com/XinFinOrg/Open-Hackathon",
+      "section": "Community and support",
+      "source": "GitHub",
+      "author": "XinFin",
+      "archived": false
+    },
+    {
+      "title": "Get XDC listed: exchange integration guide",
+      "url": "https://docs.xdc.network/xdcchain/developers/getxdclisted/",
+      "section": "Community and support",
+      "source": "docs.xdc.network",
+      "author": "XDC Network",
+      "archived": false
+    },
+    {
+      "title": "XDC Node Installation 2026 - Including Security Hardening Instructions",
+      "url": "https://www.xdc.dev/s4njk4n/hardened-xdc-full-node-2026-notes-to-self-3g2d",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "How to Run an XDC Full Node behind CGNAT",
+      "url": "https://www.xdc.dev/s4njk4n/running-an-xdc-node-behind-cgnat-34p2",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "Uptime Monitoring for XDC Mainnet Masternodes",
+      "url": "https://www.xdc.dev/s4njk4n/how-to-ensure-your-xdc-network-node-is-online-3b19",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "Uptime Monitoring for Apothem Testnet Masternodes",
+      "url": "https://www.xdc.dev/s4njk4n/uptime-monitoring-for-your-apothem-testnet-masternode-26c4",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "SSL/TLS Encryption for XDC Node RPCs",
+      "url": "https://www.xdc.dev/s4njk4n/ssltls-encryption-for-xdc-node-rpcs-k15",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "Controlling Access to XDC Node RPC Endpoints",
+      "url": "https://www.xdc.dev/s4njk4n/controlling-access-to-xdc-node-rpc-endpoints-3en3",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "Commands and Configuration Options for the XDC Mainnet Client",
+      "url": "https://www.xdc.dev/s4njk4n/commands-and-configuration-options-for-the-xdc-mainnet-client-3pe0",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "Backing up XDC Geth Client Chain Database",
+      "url": "https://www.xdc.dev/s4njk4n/backing-up-xdc-geth-client-chain-database-58oh",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "How to Run a 2nd XDC Network Node on a LAN that has only a Single Existing Public IP Address",
+      "url": "https://www.xdc.dev/s4njk4n/how-to-run-a-2nd-xdc-network-node-on-a-lan-with-a-single-existing-public-ip-address-3ib7",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "Securing your XDC Mainnet Masternode",
+      "url": "https://www.xdc.dev/s4njk4n/securing-your-xdc-masternode-running-on-ubuntu-2004lts-57k8",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "Securing your Apothem Testnet Masternode",
+      "url": "https://www.xdc.dev/s4njk4n/securing-your-apothem-testnet-masternode-6dh",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "Tools for Managing Multiple XDC Nodes",
+      "url": "https://www.xdc.dev/s4njk4n/xdcmultinodetools-5efo",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "XDC Full Node Load Balancer Resource 1",
+      "url": "https://github.com/s4njk4n/publicnexus.xdcchain.xyz",
+      "section": "Running a node",
+      "source": "GitHub",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "XDC Full Node Load Balancer Resource 2",
+      "url": "https://github.com/s4njk4n/publicnexus_updated_endpoints",
+      "section": "Running a node",
+      "source": "GitHub",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "XDC Node Installation Script for Ubuntu 22.04 Onwards",
+      "url": "https://github.com/s4njk4n/XDCLibrary/blob/main/install_xdc_node_v1.0.sh",
+      "section": "Running a node",
+      "source": "GitHub",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "XDC Node Peering: A Comprehensive Guide",
+      "url": "https://www.xdc.dev/s4njk4n/xdc-node-peering-a-comprehensive-guide-1ibc",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "Maintaining Peer-Count Automatically 2026",
+      "url": "https://github.com/s4njk4n/XDC_Node_Behind_CGNAT",
+      "section": "Running a node",
+      "source": "GitHub",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": false
+    },
+    {
+      "title": "How to Improve the Peer-count of your XDC Network Full Node",
+      "url": "https://medium.com/@s4njk4n/how-to-improve-the-peer-count-of-your-xinfin-full-node-7372541528b5",
+      "section": "Running a node",
+      "source": "Medium",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "Masternodes not Gaining Peers",
+      "url": "https://www.xdc.dev/s4njk4n/solved-masternodes-not-gaining-peers-466b",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "Tools for Managing Multiple StorX Nodes",
+      "url": "https://github.com/s4njk4n/StorX_Multinode_Tools",
+      "section": "Ecosystem projects",
+      "source": "GitHub",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "Tools for Managing Multiple Plugin Nodes",
+      "url": "https://github.com/s4njk4n/Plugin_Multinode_Tools",
+      "section": "Ecosystem projects",
+      "source": "GitHub",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "Upgrade XDC-Client v1.4 to v1.6 by MIGRATION",
+      "url": "https://www.xdc.dev/s4njk4n/upgrade-xdc-client-v14-to-v16-by-migration-2ifh",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "Upgrade XDC Clients from v1.4.4 (Old Directory Structure) to Newer v1.6.0",
+      "url": "https://www.xdc.dev/s4njk4n/upgrading-xdc-clients-from-v144-old-directory-structure-to-newer-v160-590n",
+      "section": "Running a node",
+      "source": "xdc.dev",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "How to Migrate an XDC Full Node from a Local Ubuntu 20.04 One-Click Installer to Docker on a Remote Ubuntu 20.04 Server",
+      "url": "https://medium.com/@s4njk4n/xinfin-xdc-network-how-to-migrate-a-full-node-from-a-local-ubuntu-20-04-b51624e96db8",
+      "section": "Running a node",
+      "source": "Medium",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    },
+    {
+      "title": "How to Migrate a Full-Node from a Local Ubuntu 20.04 One-Click Installer to Docker on the Same Machine",
+      "url": "https://medium.com/@s4njk4n/xinfin-xdc-network-how-to-migrate-a-full-node-from-a-local-ubuntu-20-04-fe7af8ab38bd",
+      "section": "Running a node",
+      "source": "Medium",
+      "author": "s4njk4n (XDC Outpost)",
+      "archived": true
+    }
+  ]
+}

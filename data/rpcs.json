@@ -1,0 +1,215 @@
+{
+  "note": "Checks run from your browser, so an endpoint that refuses browser requests (CORS) shows as unreachable even if it's up. Plugin is pinned as the recommended community-run option.",
+  "networks": [
+    {
+      "name": "Mainnet",
+      "chainId": 50,
+      "endpoints": [
+        {
+          "url": "https://rpc.xdc.org",
+          "provider": "XDC Foundation",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://rpc.xdc.network",
+          "provider": "XDC Network",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://erpc.xinfin.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://rpc.xinfin.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://rpc1.xinfin.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://earpc.xinfin.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://arpc.xinfin.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "manual"
+        },
+        {
+          "url": "https://rpc.plugin.global/xdcmainnet",
+          "provider": "Plugin",
+          "privacy": "none",
+          "source": "chainlist",
+          "recommended": true
+        },
+        {
+          "url": "https://rpc.ankr.com/xdc",
+          "provider": "Ankr",
+          "privacy": "limited",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://rpc.xdcrpc.com",
+          "provider": "xdcrpc.com",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://erpc.xdcrpc.com",
+          "provider": "xdcrpc.com",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://xdc-mainnet.gateway.tatum.io",
+          "provider": "Tatum",
+          "privacy": "yes",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://api-xdc-mainnet.n.dwellir.com/2ccf18bf-2916-4198-8856-42172854353c",
+          "provider": "Dwellir",
+          "privacy": "limited",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://lb.routeme.sh/rpc/evm/50",
+          "provider": "RouteMesh",
+          "privacy": "limited",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://xdc.public-rpc.com",
+          "provider": "public-rpc.com",
+          "privacy": "unspecified",
+          "source": "manual"
+        },
+        {
+          "url": "wss://rpc.plugin.global/ws/xdcmainnet",
+          "provider": "Plugin",
+          "privacy": "none",
+          "source": "chainlist",
+          "recommended": true
+        },
+        {
+          "url": "wss://ews.xinfin.network/ws",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "wss://ws.xinfin.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "manual"
+        },
+        {
+          "url": "wss://rpc.xdcrpc.com/ws",
+          "provider": "xdcrpc.com",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "wss://erpc.xdcrpc.com/ws",
+          "provider": "xdcrpc.com",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        }
+      ],
+      "walletName": "XDC Network",
+      "explorer": "https://xdcscan.com",
+      "currency": {
+        "name": "XDC",
+        "symbol": "XDC",
+        "decimals": 18
+      }
+    },
+    {
+      "name": "Apothem testnet",
+      "chainId": 51,
+      "endpoints": [
+        {
+          "url": "https://erpc.apothem.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://earpc.apothem.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://rpc.apothem.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://arpc.apothem.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "manual"
+        },
+        {
+          "url": "https://rpc.plugin.global/xdcapothem",
+          "provider": "Plugin",
+          "privacy": "none",
+          "source": "chainlist",
+          "recommended": true
+        },
+        {
+          "url": "https://rpc.ankr.com/xdc_testnet",
+          "provider": "Ankr",
+          "privacy": "limited",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://apothem.xdcrpc.com",
+          "provider": "xdcrpc.com",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        },
+        {
+          "url": "https://xdc-testnet.drpc.org",
+          "provider": "dRPC",
+          "privacy": "none",
+          "source": "chainlist"
+        },
+        {
+          "url": "wss://rpc.plugin.global/ws/xdcapothem",
+          "provider": "Plugin",
+          "privacy": "none",
+          "source": "chainlist",
+          "recommended": true
+        },
+        {
+          "url": "wss://eaws.apothem.network",
+          "provider": "XinFin",
+          "privacy": "unspecified",
+          "source": "chainlist"
+        }
+      ],
+      "walletName": "XDC Apothem Testnet",
+      "explorer": "https://testnet.xdcscan.com",
+      "currency": {
+        "name": "TXDC",
+        "symbol": "TXDC",
+        "decimals": 18
+      }
+    }
+  ]
+}

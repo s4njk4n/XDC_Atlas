@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XDC Atlas</title>
+  <meta name="description" content="XDC Atlas: a map of the XDC Network ecosystem, with developer guides and live RPC status, curated by XDC Outpost.">
+  <link rel="canonical" href="https://xdcoutpost.xyz/XDC_Atlas/">
+  <meta name="theme-color" content="#1E1A4A">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xdcoutpost.xyz/XDC_Atlas/">
+  <meta property="og:title" content="XDC Atlas">
+  <meta property="og:description" content="Everything people have built for the XDC Network, in one place: tools, guides and live RPC status.">
+  <meta property="og:image" content="https://xdcoutpost.xyz/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@s4njk4n">
+  <script src="/assets/analytics.js" defer></script>
+  <style>
+    /* Fonts are shared with the main site (/assets/fonts). The second url is a local fallback for previews. */
+    @font-face {
+      font-family: "Bricolage";
+      src: url("/assets/fonts/bricolage.woff2") format("woff2-variations"), url("assets/fonts/bricolage.woff2") format("woff2-variations");
+      font-weight: 200 800; font-stretch: 75% 100%; font-display: swap;
+    }
+    @font-face {
+      font-family: "Instrument Sans";
+      src: url("/assets/fonts/instrument-sans.woff2") format("woff2-variations"), url("assets/fonts/instrument-sans.woff2") format("woff2-variations");
+      font-weight: 400 700; font-stretch: 75% 100%; font-display: swap;
+    }
+
+    :root {
+      /* Same tokens as xdcoutpost.xyz. Layout: sticky header with section tabs, compact hero, then one band per view. */
+      --night: #1E1A4A;
+      --deep: #19163F;
+      --dusk: #2B2566;
+      --line: #443D84;
+      --ink: #F2EDFF;
+      --mist: #C3B8EA;
+      --signal: #8FDCFF;
+      --flare: #FF9EBB;
+      --mint: #6EE7B7;
+      --amber: #FFD58A;
+
+      --display: "Bricolage", "Avenir Next", "Segoe UI", sans-serif;
+      --body: "Instrument Sans", "Helvetica Neue", "Segoe UI", sans-serif;
+      --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+      --wrap: 72rem;
+      --gutter: clamp(1.25rem, 4vw, 2.5rem);
+      color-scheme: dark;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 10rem; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      margin: 0; background: var(--night); color: var(--ink);
+      font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--signal); text-underline-offset: 0.2em; }
+    a:hover { color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+    .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .skip { position: absolute; left: 1rem; top: -3rem; background: var(--signal); color: var(--night); padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; z-index: 20; }
+    .skip:focus { top: 1rem; }
+
+    /* ---------- Header (as on the main site) ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgb(30 26 74 / 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent; transition: border-color 0.2s;
+    }
+    .site-header.scrolled { border-bottom-color: var(--line); }
+    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 4rem; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.01em; white-space: nowrap; }
+    .brand svg { width: 1.6rem; height: 1.6rem; flex: none; }
+    .brand .sub { color: var(--mist); font-weight: 500; }
+    .site-nav { display: flex; gap: clamp(1rem, 3vw, 2rem); }
+    .site-nav a { color: var(--mist); text-decoration: none; font-size: 0.95rem; font-weight: 500; white-space: nowrap; padding: 0.75rem 0; border-bottom: 2px solid transparent; }
+    .site-nav a:hover { color: var(--ink); }
+    .site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--signal); }
+    @media (max-width: 640px) {
+      .brand .sub, .site-nav a[data-view] { display: none; }
+      .site-nav .wide { display: inline; }
+    }
+    @media (max-width: 480px) { .brand .txt { display: none; } }
+    @media (max-width: 380px) { .brand { font-size: 1.05rem; } .site-nav { gap: 0.9rem; } .site-nav a { font-size: 0.875rem; } }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(1.5rem, 3vw, 2.25rem); }
+    .hero h1 {
+      font-family: var(--display); font-weight: 750; font-stretch: 82%;
+      font-size: clamp(2.5rem, 6.5vw, 4.5rem); line-height: 0.95; letter-spacing: -0.028em;
+      margin: 0 0 1.25rem; text-wrap: balance;
+    }
+    .hero .lede { font-size: clamp(1.0625rem, 1.8vw, 1.2rem); color: var(--mist); max-width: 36em; margin: 0; }
+    .stats { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin: 1.5rem 0 0; padding: 0; list-style: none; color: var(--mist); font-size: 0.95rem; }
+    .stats b { color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 1.35rem; font-variant-numeric: tabular-nums; margin-right: 0.35rem; }
+
+    /* ---------- In-page section tabs (sticky under the header) ---------- */
+    .ptabs { position: sticky; top: 4rem; z-index: 9; background: rgb(30 26 74 / 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .ptabs-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
+    .ptab { display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--dusk); color: var(--ink); text-decoration: none; transition: border-color 0.15s, background-color 0.15s; }
+    .ptab:hover { border-color: var(--signal); color: var(--ink); }
+    .ptab svg { width: 1.6rem; height: 1.6rem; flex: none; fill: none; stroke: var(--signal); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .ptab .t { display: block; font-family: var(--display); font-weight: 700; font-size: 1.15rem; line-height: 1.2; }
+    .ptab .d { display: block; font-size: 0.85rem; color: var(--mist); }
+    .ptab .d b { color: var(--ink); font-variant-numeric: tabular-nums; }
+    .ptab[aria-current="page"] { background: var(--signal); border-color: var(--signal); color: var(--night); }
+    .ptab[aria-current="page"] svg { stroke: var(--night); }
+    .ptab[aria-current="page"] .d, .ptab[aria-current="page"] .d b { color: var(--night); }
+    @media (max-width: 640px) {
+      .ptabs-row { gap: 0.4rem; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+      .ptab { flex-direction: column; gap: 0.2rem; padding: 0.5rem 0.25rem; text-align: center; }
+      .ptab svg { width: 1.3rem; height: 1.3rem; }
+      .ptab .t { font-size: 0.95rem; }
+      .ptab .d { display: none; }
+    }
+
+    /* ---------- Bands ---------- */
+    .band { background: var(--deep); padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3.5rem, 7vw, 5rem); }
+    .view[hidden] { display: none; }
+    .band h2 { font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: clamp(1.75rem, 3.5vw, 2.25rem); letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 0.5rem; }
+    .band .intro { color: var(--mist); margin: 0 0 1.75rem; max-width: 40em; }
+
+    /* ---------- Controls ---------- */
+    .controls { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1rem; }
+    .field { flex: 1 1 18rem; }
+    input[type="search"], select {
+      width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
+      background: var(--night); border: 1px solid var(--line); border-radius: 8px; padding: 0.65rem 0.9rem;
+    }
+    input[type="search"]::placeholder { color: var(--mist); opacity: 0.75; }
+    select { width: auto; }
+    .check { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--mist); font-size: 0.95rem; cursor: pointer; }
+    .check input { accent-color: var(--signal); width: 1rem; height: 1rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem; }
+    .chip {
+      font: 500 0.9rem var(--body); color: var(--ink); cursor: pointer;
+      padding: 0.45rem 0.95rem; border-radius: 999px; border: 1px solid var(--line); background: var(--dusk);
+      display: inline-flex; gap: 0.45rem; align-items: center;
+    }
+    .chip:hover { border-color: var(--signal); }
+    @media (max-width: 640px) {
+      .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: calc(-1 * var(--gutter)); padding-right: var(--gutter); padding-bottom: 0.25rem; }
+      .chips::-webkit-scrollbar { display: none; }
+      .chip { flex: none; }
+    }
+    .chip .n { color: var(--mist); font-variant-numeric: tabular-nums; }
+    .chip[aria-pressed="true"] { background: var(--signal); border-color: var(--signal); color: var(--night); }
+    .chip[aria-pressed="true"] .n { color: var(--night); opacity: 0.7; }
+
+    /* ---------- Tool groups ---------- */
+    .tgroup { margin-bottom: 2.25rem; }
+    .tgroup-head { display: flex; align-items: baseline; gap: 0.75rem; margin: 0 0 0.85rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line); }
+    .tgroup-head h3 { margin: 0; font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: 1.3rem; letter-spacing: -0.01em; }
+    .tgroup-head .n { color: var(--mist); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+    .tgroup-head .more { margin-left: auto; background: none; border: 0; color: var(--signal); font: 600 0.9rem var(--body); cursor: pointer; padding: 0.25rem 0; }
+    .tgroup-head .more:hover { color: var(--ink); text-decoration: underline; }
+    .disclaimer { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.88rem; color: var(--mist); border: 1px solid var(--line); background: var(--night); border-radius: 10px; padding: 0.7rem 0.9rem; margin: 0 0 1.75rem; max-width: 52rem; }
+    .disclaimer strong { color: var(--ink); }
+
+    /* ---------- Tool cards: compact, one action, like a model hub listing ---------- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
+    .card {
+      position: relative; display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: 0 0.85rem; align-items: start;
+      background: var(--dusk); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem 0.9rem;
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+    .card:hover { border-color: var(--signal); background: #312A70; }
+    .card.dim { opacity: 0.7; }
+    .card .body { display: grid; gap: 0.3rem; min-width: 0; }
+    .logo { width: 2.6rem; height: 2.6rem; border-radius: 10px; display: grid; place-items: center; font: 700 0.95rem var(--display); letter-spacing: 0.01em; color: hsl(var(--h) 85% 86%); background: hsl(var(--h) 42% 30%); border: 1px solid hsl(var(--h) 45% 40%); flex: none; overflow: hidden; }
+    .logo svg { width: 1.7rem; height: 1.7rem; }
+    .logo.has-img { background: #fff; border-color: var(--line); padding: 0.18rem; }
+    .logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .logo.xdc { background: var(--night); border-color: var(--signal); color: var(--signal); font-size: 0.78rem; }
+    .logo.outpost { background: var(--night); border-color: var(--flare); }
+    .card h3 { margin: 0; font-family: var(--display); font-weight: 650; font-size: 1.08rem; line-height: 1.25; letter-spacing: -0.01em; }
+    .card h3 a { color: var(--ink); text-decoration: none; }
+    .card h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }
+    .card p { margin: 0; color: var(--mist); font-size: 0.95rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card .meta { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: var(--mist); margin-top: 0.2rem; }
+    .card .meta .left { display: flex; align-items: center; gap: 0.5rem; min-width: 0; }
+    .card .meta span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .card .meta .comm { color: var(--signal); }
+    .card .icons { display: flex; gap: 0.25rem; position: relative; z-index: 1; flex: none; }
+    .icon-link { display: inline-grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 6px; color: var(--mist); }
+    .icon-link:hover { color: var(--ink); background: var(--night); }
+    .icon-link svg { width: 1rem; height: 1rem; fill: currentColor; }
+    button.icon-link { background: none; border: 0; cursor: pointer; padding: 0; }
+
+    .kind { font-family: var(--body); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.01em; padding: 0.1rem 0.55rem; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+    .kind-web { color: var(--signal); }
+    .kind-repo { color: var(--mist); }
+    .kind-bot { color: #B9F0D6; }
+    .kind-soon { color: var(--flare); border-style: dashed; }
+    .kind-old { color: var(--mist); border-style: dashed; opacity: 0.85; }
+    .empty { grid-column: 1 / -1; padding: 2.5rem 1rem; text-align: center; color: var(--mist); border: 1px dashed var(--line); border-radius: 12px; }
+
+    /* ---------- Add your project (contact-style split) ---------- */
+    .add { display: grid; gap: 2rem 4rem; margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--line); }
+    @media (min-width: 900px) { .add { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .add p, .add li { color: var(--mist); }
+    .add p { margin: 0 0 1rem; max-width: 32em; }
+    .add ol, .add ul { margin: 0 0 1rem; padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+    .add strong, .add code { color: var(--ink); }
+    code { font-family: var(--mono); font-size: 0.88em; }
+    .code { position: relative; }
+    .code pre { margin: 0; background: var(--night); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem 1.2rem; overflow-x: auto; font: 0.85rem/1.55 var(--mono); color: var(--mist); }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.55rem 1rem; border-radius: 8px; font: 600 0.92rem var(--body); text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 0.15s, color 0.15s, border-color 0.15s; }
+    .btn-primary { background: var(--signal); color: var(--night); border: 1px solid var(--signal); }
+    .btn-primary:hover { background: var(--ink); border-color: var(--ink); color: var(--night); }
+    .btn-ghost { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--signal); color: var(--ink); }
+    .btn svg { width: 1rem; height: 1rem; fill: currentColor; flex: none; }
+    .code .btn { position: absolute; top: 0.6rem; right: 0.6rem; background: var(--dusk); }
+
+    /* ---------- Reading (group layout from the main site) ---------- */
+    .group { display: grid; gap: 1rem 3rem; grid-template-columns: 1fr; padding: 2rem 0; border-top: 1px solid var(--line); }
+    @media (min-width: 900px) { .group { grid-template-columns: 15rem 1fr; } .group-head { position: sticky; top: 6rem; align-self: start; } }
+    .group-head h3 { font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: 1.4rem; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.25rem; }
+    .group-head p { margin: 0; color: var(--mist); font-size: 0.95rem; }
+    .reads { list-style: none; margin: 0; padding: 0; }
+    .reads li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid rgb(68 61 132 / 0.6); }
+    .reads li:first-child { padding-top: 0; }
+    .reads li:last-child { border-bottom: 0; }
+    .reads a { color: var(--ink); text-decoration: none; font-weight: 500; }
+    .reads a:hover { color: var(--signal); text-decoration: underline; }
+    .reads .src { color: var(--mist); font-size: 0.85rem; white-space: nowrap; display: flex; gap: 0.5rem; align-items: center; }
+    @media (max-width: 640px) { .reads li { flex-direction: column; gap: 0.2rem; } }
+    .caveat { font-size: 0.92rem; color: var(--mist); border-left: 2px solid var(--flare); padding-left: 0.9rem; margin: 0 0 1.5rem; max-width: 40em; }
+
+    /* ---------- RPC status ---------- */
+    .net-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; align-items: center; margin-bottom: 1.25rem; }
+    .summary { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin: 0; padding: 0; list-style: none; color: var(--mist); font-size: 0.95rem; }
+    .summary b { color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 1.25rem; font-variant-numeric: tabular-nums; margin-right: 0.35rem; }
+    .refresh { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; color: var(--mist); font-size: 0.9rem; }
+    .refresh select { padding: 0.45rem 0.7rem; font-size: 0.92rem; }
+    .countdown { font-variant-numeric: tabular-nums; min-width: 9.5em; }
+    .net-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .tablewrap { overflow-x: auto; background: var(--dusk); border: 1px solid var(--line); border-radius: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+    th, td { text-align: left; padding: 0.7rem 0.6rem; border-top: 1px solid var(--line); white-space: nowrap; vertical-align: middle; }
+    thead th { border-top: 0; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mist); }
+    tr.grp td { background: var(--night); color: var(--ink); font-weight: 600; font-size: 0.9rem; }
+    tr.grp td span { color: var(--mist); font-weight: 400; }
+    td.num { font-variant-numeric: tabular-nums; text-align: right; }
+    th.num { text-align: right; }
+    .ep { display: grid; gap: 0.05rem; }
+    .ep b { font-weight: 600; }
+    .ep code { color: var(--mist); font-size: 0.8rem; display: block; max-width: 19rem; white-space: normal; }
+    td:first-child, th:first-child { padding-left: 1rem; white-space: normal; }
+    td:last-child, th:last-child { padding-right: 1rem; }
+    .mini .lbl { display: inline; }
+    @media (max-width: 1180px) { .mini .lbl { display: none; } .mini { padding: 0.4rem 0.5rem; } }
+    @media (max-width: 860px) { .col-track { display: none; } }
+    @media (max-width: 640px) {
+      /* Phones: each endpoint becomes a small stacked block instead of a wide row */
+      .tablewrap table, .tablewrap tbody { display: block; }
+      .tablewrap thead, .col-blk, .col-track { display: none; }
+      .tablewrap tr { display: grid; grid-template-columns: 1fr auto; gap: 0.35rem 0.75rem; padding: 0.8rem 1rem; border-top: 1px solid var(--line); align-items: center; }
+      .tablewrap tr.grp, .tablewrap tr.sub { display: block; padding: 0; }
+      .tablewrap td { display: block; border: 0; padding: 0; white-space: normal; }
+      .tablewrap tr.grp td, .tablewrap tr.sub td { padding: 0.6rem 1rem; }
+      .tablewrap td:first-child { grid-column: 1 / -1; }
+      .tablewrap td.num { text-align: left; color: var(--mist); font-size: 0.85rem; }
+      .tablewrap td:last-child { grid-column: 1 / -1; }
+      .tablewrap .acts { justify-content: flex-start; }
+      .tablewrap .mini .lbl { display: inline; }
+      .ep code { max-width: none; }
+      .tablewrap td.col-blk, .tablewrap td.col-track { display: none; }
+      .tablewrap tr.rec { box-shadow: inset 3px 0 0 var(--flare); background: rgb(255 158 187 / 0.07); }
+      .tablewrap tr.rec td, .tablewrap tr.rec td:first-child { background: transparent; box-shadow: none; }
+    }
+    .proto { font: 600 0.68rem var(--body); letter-spacing: 0.05em; color: var(--mist); border: 1px solid var(--line); border-radius: 4px; padding: 0.05rem 0.35rem; margin-left: 0.4rem; vertical-align: 1px; }
+    .st { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 600; }
+    .st::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: currentColor; }
+    .st.up { color: var(--mint); } .st.up::before { box-shadow: 0 0 0 4px rgb(110 231 183 / 0.18); }
+    .st.lag { color: var(--amber); }
+    .st.down { color: var(--flare); }
+    .st.na { color: var(--mist); font-weight: 500; }
+    .st.wait { color: var(--mist); font-weight: 500; }
+    tr.sub td { background: var(--deep); color: var(--mist); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.55rem; padding-bottom: 0.55rem; }
+    tr.rec td { background: rgb(255 158 187 / 0.07); }
+    tr.rec td:first-child { box-shadow: inset 3px 0 0 var(--flare); }
+    .rec-flag { font: 600 0.7rem var(--body); color: var(--night); background: var(--flare); border-radius: 999px; padding: 0.1rem 0.55rem; margin-left: 0.5rem; vertical-align: 2px; letter-spacing: 0.01em; }
+    .acts { display: flex; gap: 0.4rem; justify-content: flex-end; align-items: center; }
+    .mini { font: 600 0.8rem var(--body); padding: 0.35rem 0.7rem; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; white-space: nowrap; display: inline-flex; gap: 0.4rem; align-items: center; }
+    .mini:hover { border-color: var(--signal); }
+    .mini svg { width: 0.9rem; height: 0.9rem; fill: currentColor; }
+    .mini.wallet { border-color: var(--signal); color: var(--signal); }
+    .mini.wallet:hover { background: var(--signal); color: var(--night); }
+    .toast { position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%); z-index: 30; max-width: min(34rem, calc(100% - 2rem)); background: var(--dusk); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: 0.75rem 1rem; font-size: 0.93rem; box-shadow: 0 10px 30px rgb(0 0 0 / 0.35); }
+    .toast[hidden] { display: none; }
+    .toast.bad { border-color: var(--flare); }
+    .priv { font-size: 0.82rem; color: var(--mist); }
+    .priv.none { color: var(--mint); } .priv.yes { color: var(--flare); }
+    .banner { margin-top: 1rem; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--line); background: var(--night); color: var(--amber); font-size: 0.92rem; }
+    .fine { color: var(--mist); font-size: 0.88rem; margin: 1rem 0 0; max-width: 46em; }
+
+    /* ---------- Footer ---------- */
+    .site-footer { border-top: 1px solid var(--line); padding: 2rem 0; color: var(--mist); font-size: 0.9rem; }
+    .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+    .site-footer p { margin: 0; }
+    .site-footer a { display: inline-block; padding: 0.6rem 0; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-beacon" viewBox="0 0 32 32">
+      <path d="M11 29 L16 11 L21 29 M12.6 23 H19.4 M13.8 18 H18.2" fill="none" stroke="#C3B8EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="16" cy="7.5" r="3" fill="#FF9EBB"/>
+      <path d="M9.5 4.5 A9 9 0 0 0 9.5 10.5 M22.5 4.5 A9 9 0 0 1 22.5 10.5" fill="none" stroke="#FF9EBB" stroke-width="1.75" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h8l6 6v14H6zM13 3.5V9h5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 13h8M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-tip" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.6 1.1 5.2 3 1.6-1.9 3.2-3 5.2-3 3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h13v3M3 7v11a2 2 0 0 0 2 2h15V8H5a2 2 0 0 1-2-1zm13 6.5h2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h11v11H9zM5 15H4V4h11v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <header class="site-header" id="top">
+    <div class="wrap">
+      <a class="brand" href="https://xdcoutpost.xyz/">
+        <svg aria-hidden="true"><use href="#i-beacon"/></svg>
+        <span class="txt">XDC Outpost</span> <span class="sub">/ Atlas</span>
+      </a>
+      <nav class="site-nav" aria-label="Atlas sections">
+        <a href="#ecosystem" data-view="ecosystem">Ecosystem</a>
+        <a href="#reading" data-view="reading">Reading</a>
+        <a href="#rpc-status" data-view="rpc-status">RPC status</a>
+        <a class="wide" href="https://xdcoutpost.xyz/">Outpost home</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>XDC Atlas</h1>
+      <p class="lede">Everything people have built for the XDC Network, in one place: community tools, official building blocks, guides and live RPC status. Built something? <a href="#add">Add it</a>.</p>
+    </div>
+  </section>
+
+  <nav class="ptabs" aria-label="Atlas sections">
+    <div class="wrap ptabs-row">
+      <a class="ptab" href="#ecosystem" data-view="ecosystem">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
+        <span><span class="t">Ecosystem</span><span class="d"><b id="s-tools">–</b> tools, apps and services</span></span>
+      </a>
+      <a class="ptab" href="#reading" data-view="reading">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5zM12 6.5v13"/></svg>
+        <span><span class="t">Reading</span><span class="d"><b id="s-reading">–</b> developer guides</span></span>
+      </a>
+      <a class="ptab" href="#rpc-status" data-view="rpc-status">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></svg>
+        <span><span class="t">RPC status</span><span class="d"><b id="s-rpc">–</b> endpoints checked live</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ================= TOOLS ================= -->
+    <section class="band view" id="view-ecosystem" aria-labelledby="tools-h">
+      <div class="wrap">
+        <h2 id="tools-h" class="vh">Ecosystem</h2>
+        <div class="controls">
+          <div class="field">
+            <label class="vh" for="q">Search the ecosystem</label>
+            <input id="q" type="search" placeholder="Search the ecosystem: masternode, wallet, stablecoin, bridge…" autocomplete="off">
+          </div>
+          <label class="vh" for="kind">Built by</label>
+          <select id="kind">
+            <option value="all">Built by anyone</option>
+            <option value="community">Community-built</option>
+            <option value="official">Official (XinFin / XDC)</option>
+            <option value="third-party">Ecosystem projects &amp; partners</option>
+          </select>
+          <label class="check" for="show-archived"><input type="checkbox" id="show-archived"> Show archived and unreachable</label>
+        </div>
+        <div class="chips" id="cats" role="group" aria-label="Filter by category"></div>
+        <p class="disclaimer"><span aria-hidden="true">ⓘ</span><span><strong>Listed for discovery, not endorsed.</strong> Appearing here is not an endorsement by XDC Outpost, and nothing here has been audited by us. Check a project's contracts, permissions and links yourself before connecting a wallet or sending funds. You're responsible for your own security.</span></p>
+        <div id="grid"></div>
+
+        <div class="add" id="add">
+          <div>
+            <h2>Add your project</h2>
+            <p>Built something for XDC, or run a service that supports it? List it here so people can find it. Big or small, open source or not.</p>
+            <ol>
+              <li>Copy the template and fill it in.</li>
+              <li>Open a pull request adding it to <code>data/tools.json</code> in the <a href="https://github.com/s4njk4n/XDC_Atlas">XDC_Atlas repo</a>. Listings are only accepted by pull request.</li>
+              <li>Already listed? Put an <code>xdc-tool.json</code> with the same fields in your own repo to claim it.</li>
+            </ol>
+            <p>Add a <code>tipAddress</code> if you'd like a tip button on your card. Tips go straight to you; XDC Atlas never holds funds.</p>
+          </div>
+          <div class="code">
+            <pre id="template">{
+  "id": "my-tool",
+  "name": "My Tool",
+  "by": "your-github-name",
+  "byUrl": "https://github.com/your-github-name",
+  "kind": "community",
+  "category": "dev",
+  "summary": "One or two sentences on what it does.",
+  "type": "web-app",
+  "license": "MIT",
+  "status": "active",
+  "tags": ["rpc", "monitoring"],
+  "links": {
+    "app": "https://…",
+    "repo": "https://github.com/…"
+  },
+  "tipAddress": "xdc…"
+}</pre>
+            <button class="btn btn-ghost" type="button" id="copy-template">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= READING ================= -->
+    <section class="band view" id="view-reading" aria-labelledby="reading-h" hidden>
+      <div class="wrap">
+        <h2 id="reading-h">Reading</h2>
+        <p class="intro">Developer documentation, tutorials and references from across the XDC ecosystem, including XinFin, the XDC Foundation, the community docs, xdc.dev, the XDC forum and ecosystem teams. Know a good one that's missing? Add it by pull request to <code>data/articles.json</code>.</p>
+        <div class="controls">
+          <div class="field">
+            <label class="vh" for="rq">Search guides</label>
+            <input id="rq" type="search" placeholder="Search guides: hardhat, subnet, USDC, peers, XRC20…" autocomplete="off">
+          </div>
+          <label class="vh" for="rsrc">Published by</label>
+          <select id="rsrc"><option value="all">Published by anyone</option></select>
+          <label class="check" for="r-archived"><input type="checkbox" id="r-archived"> Show archived</label>
+        </div>
+        <div class="chips" id="rcats" role="group" aria-label="Filter by topic"></div>
+        <p class="caveat">Node software changes over time. Check the date and client version before following an older guide.</p>
+        <div id="reading-list"></div>
+      </div>
+    </section>
+
+    <!-- ================= RPC STATUS ================= -->
+    <section class="band view" id="view-rpc-status" aria-labelledby="rpc-h" hidden>
+      <div class="wrap">
+        <h2 id="rpc-h">RPC status</h2>
+        <p class="intro">Every public XDC endpoint listed on Chainlist, checked live from your browser: is it answering, how far behind the leading block it is, and how fast it responds. Run your own endpoint? <a href="#add-rpc" data-scroll="add-rpc">Submit it</a>.</p>
+        <div class="net-top">
+          <ul class="summary" aria-live="polite">
+            <li><b id="r-up">–</b>answering</li>
+            <li><b id="r-lag">–</b>lagging</li>
+            <li><b id="r-down">–</b>not answering</li>
+            <li><b id="r-best">–</b>leading mainnet block</li>
+          </ul>
+          <div class="refresh">
+            <label for="interval">Refresh</label>
+            <select id="interval">
+              <option value="0">Off</option>
+              <option value="15">Every 15 s</option>
+              <option value="30" selected>Every 30 s</option>
+              <option value="60">Every minute</option>
+            </select>
+            <span class="countdown" id="countdown"></span>
+            <button class="btn btn-primary" type="button" id="recheck">Check now</button>
+          </div>
+        </div>
+        <div class="net-filter" id="net-filter" role="group" aria-label="Network">
+          <button class="chip" type="button" data-net="Mainnet" aria-pressed="true">Mainnet</button>
+          <button class="chip" type="button" data-net="Apothem testnet" aria-pressed="false">Apothem testnet</button>
+          <button class="chip" type="button" data-net="all" aria-pressed="false">Both</button>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Provider and endpoint</th><th>Status</th><th class="num col-blk">Block</th><th class="num col-blk">Behind</th><th class="num">Response</th><th class="col-track">Tracking</th><th><span class="vh">Actions</span></th></tr></thead>
+            <tbody id="rpc-body"></tbody>
+          </table>
+        </div>
+        <div id="rpc-banner"></div>
+        <p class="fine" id="rpc-note"></p>
+        <p class="fine">Need another chain? <a href="https://chainlist.org/chain/50">Chainlist</a> covers every network. The XDC endpoints here are synced from it every week.</p>
+
+        <div class="add" id="add-rpc">
+          <div>
+            <h2>Submit an RPC</h2>
+            <p>Endpoints on this page come from three places: Chainlist, the official XinFin tools guide, and pull requests from people who run their own. If you run a public XDC endpoint, you can add it.</p>
+            <ol>
+              <li>Copy the template and fill it in.</li>
+              <li>Open a pull request adding it to the right network in <code>data/rpcs.json</code> in the <a href="https://github.com/s4njk4n/XDC_Atlas">XDC_Atlas repo</a>. Submissions are only accepted by pull request.</li>
+            </ol>
+            <p><strong>Before you submit, check that your endpoint:</strong></p>
+            <ul>
+              <li>is public and needs no sign-up or API key,</li>
+              <li>uses <code>https://</code> or <code>wss://</code> and returns the right chain ID (50 for mainnet, 51 for Apothem),</li>
+              <li>allows browser requests (CORS), or it will show as unreachable here,</li>
+              <li>has a <code>privacy</code> value that matches how you treat request data: <code>none</code>, <code>limited</code> or <code>yes</code>.</li>
+            </ul>
+            <p>Endpoints that stop answering for a long stretch may be removed.</p>
+          </div>
+          <div class="code">
+            <pre id="rpc-template">{
+  "url": "https://your-node.example.com",
+  "provider": "Your name or project",
+  "privacy": "none",
+  "source": "manual"
+}</pre>
+            <button class="btn btn-ghost" type="button" data-copy-from="rpc-template">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year">2026</span> XDC Outpost, by <a href="https://github.com/s4njk4n?tab=repositories">s4njk4n</a>. Atlas data is plain JSON on <a href="https://github.com/s4njk4n/XDC_Atlas">GitHub</a>; corrections welcome.<br>Listings, guides and RPC endpoints are third-party and shown for information only. Inclusion is not an endorsement, and you use them at your own risk. Logos belong to their owners; projects can ask for theirs to be changed or removed by opening an issue on GitHub.</p>
+      <p><a href="#top">Back to top</a></p>
+    </div>
+  </footer>
+
+<script>
+(() => {
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const store = {
+    get(k) { try { return localStorage.getItem("xdcatlas:" + k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem("xdcatlas:" + k, v); } catch {} }
+  };
+  const track = n => { try { window.xdcTrack && window.xdcTrack(n); } catch {} };
+
+  $("#year").textContent = new Date().getFullYear();
+  const header = $(".site-header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  const TYPE = { "web-app": ["Web app", "kind-web"], "self-host": ["Self-hosted", "kind-repo"], "bot": ["Bot", "kind-bot"], "library": ["Library", "kind-repo"], "service": ["Hosted", "kind-web"] };
+  const KIND_ORDER = { community: 0, official: 1, "third-party": 2 };
+  const STATUS_ORDER = { active: 0, "in-development": 1, archived: 2 };
+
+  let TOOLS = [], CATS = {}, ARTICLES = [], SECTIONS = [], RPCS = null;
+  const st = { q: "", kind: "all", cat: "all", archived: false, rq: "", rarch: false, rsrc: "all", rcat: "all", net: "Mainnet" };
+
+  const load = async p => { const r = await fetch(p, { cache: "no-cache" }); if (!r.ok) throw new Error(p + " returned " + r.status); return r.json(); };
+
+  /* ---------------- Tools ---------------- */
+  const inScope = t => (st.archived || (t.status !== "archived" && t.linkStatus !== "dead")) && (st.kind === "all" || t.kind === st.kind);
+  function matches(t) {
+    if (!inScope(t)) return false;
+    if (st.cat !== "all" && t.category !== st.cat) return false;
+    if (!st.q) return true;
+    const hay = [t.name, t.by, t.summary, (t.tags || []).join(" "), CATS[t.category], (TYPE[t.type] || [""])[0]].join(" ").toLowerCase();
+    return st.q.toLowerCase().split(/\s+/).filter(Boolean).every(w => hay.includes(w));
+  }
+  function renderChips() {
+    const base = TOOLS.filter(inScope);
+    const n = base.reduce((m, t) => (m[t.category] = (m[t.category] || 0) + 1, m), {});
+    $("#cats").innerHTML = [`<button class="chip" type="button" data-cat="all" aria-pressed="${st.cat === "all"}">All <span class="n">${base.length}</span></button>`]
+      .concat(Object.entries(CATS).map(([id, label]) => `<button class="chip" type="button" data-cat="${id}" aria-pressed="${st.cat === id}">${esc(label)} <span class="n">${n[id] || 0}</span></button>`)).join("");
+  }
+  const OFFICIAL = /^(XinFin|XinFinOrg|XDC Network|XDC Foundation)$/i;
+  function hue(str) { let h = 0; for (const c of str) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h % 360; }
+  function initials(name) {
+    const w = name.replace(/[^\p{L}\p{N} ]/gu, " ").split(/\s+/).filter(x => x && !/^(the|of|and)$/i.test(x));
+    if (!w.length) return "?";
+    return (w.length === 1 ? w[0].slice(0, 2) : w[0][0] + w[1][0]).toUpperCase();
+  }
+  function logo(t) {
+    if (t.icon) return `<span class="logo has-img" data-by="${esc(t.by)}" title="${esc(t.by)}"><img src="${esc(t.icon)}" alt="" loading="lazy" width="42" height="42"></span>`;
+    if (t.by === "s4njk4n") return `<span class="logo outpost" title="XDC Outpost"><svg aria-hidden="true"><use href="#i-beacon"/></svg></span>`;
+    if (OFFICIAL.test(t.by)) return `<span class="logo xdc" title="${esc(t.by)}">XDC</span>`;
+    return `<span class="logo" style="--h:${hue(t.by)}" title="${esc(t.by)}" aria-hidden="true">${esc(initials(t.by))}</span>`;
+  }
+  function card(t) {
+    const L = t.links || {};
+    const primary = L.app || L.repo || L.demo || L.docs || "";
+    const down = t.linkStatus === "dead";
+    const [tlabel, tcls] = down ? ["Link down", "kind-soon"] : t.status === "in-development" ? ["In development", "kind-soon"]
+      : t.status === "archived" ? ["Archived", "kind-old"] : (TYPE[t.type] || [t.type, "kind-repo"]);
+    const icons = [];
+    if (L.repo && primary !== L.repo) icons.push(`<a class="icon-link" href="${esc(L.repo)}" rel="noopener" title="Source on GitHub" aria-label="${esc(t.name)} source on GitHub"><svg><use href="#i-github"/></svg></a>`);
+    if (L.docs && primary !== L.docs) icons.push(`<a class="icon-link" href="${esc(L.docs)}" rel="noopener" title="Docs" aria-label="${esc(t.name)} docs"><svg><use href="#i-doc"/></svg></a>`);
+    if (t.tipAddress) icons.push(`<button class="icon-link" type="button" data-copy="${esc(t.tipAddress)}" title="Copy tip address ${esc(t.tipAddress)}" aria-label="Copy tip address for ${esc(t.name)}"><svg><use href="#i-tip"/></svg></button>`);
+    const by = t.kind === "community" ? `<span class="comm">${esc(t.by)}</span>` : esc(t.by);
+    const title = primary ? `<a href="${esc(primary)}" rel="noopener" data-track="atlas/open/${esc(t.id)}">${esc(t.name)}</a>` : esc(t.name);
+    return `<li class="card${t.status === "archived" || down ? " dim" : ""}">
+      ${logo(t)}
+      <div class="body">
+        <h3>${title}</h3>
+        <p>${esc(t.summary)}</p>
+        <div class="meta"><span class="left"><span class="kind ${tcls}">${esc(tlabel)}</span><span>${by}</span></span><span class="icons">${icons.join("")}</span></div>
+      </div>
+    </li>`;
+  }
+  document.addEventListener("error", e => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.closest(".logo")) return;
+    const box = img.closest(".logo"), by = box.dataset.by || "?";
+    box.classList.remove("has-img"); box.style.setProperty("--h", hue(by)); box.textContent = initials(by);
+  }, true);
+  const PREVIEW = 6;
+  const expanded = new Set();
+  function renderTools() {
+    renderChips();
+    const list = TOOLS.filter(matches).sort((a, b) => (STATUS_ORDER[a.status] - STATUS_ORDER[b.status]) || (KIND_ORDER[a.kind] - KIND_ORDER[b.kind]) || a.name.localeCompare(b.name));
+    if (!list.length) { $("#grid").innerHTML = `<p class="empty">Nothing matches that yet. <a href="#add">Built something? Add it.</a></p>`; return; }
+    const single = st.cat !== "all";
+    $("#grid").innerHTML = Object.keys(CATS).map(c => {
+      const items = list.filter(t => t.category === c);
+      if (!items.length) return "";
+      const open = single || st.q || expanded.has(c) || items.length <= PREVIEW;
+      const shown = open ? items : items.slice(0, PREVIEW);
+      const btn = (single || st.q || items.length <= PREVIEW) ? "" :
+        `<button class="more" type="button" data-more="${c}" aria-expanded="${open}">${open ? "Show fewer" : `Show all ${items.length}`}</button>`;
+      return `<section class="tgroup"><div class="tgroup-head"><h3>${esc(CATS[c])}</h3><span class="n">${items.length}</span>${btn}</div>
+        <ul class="grid">${shown.map(card).join("")}</ul></section>`;
+    }).join("");
+  }
+
+  /* ---------------- Reading ---------------- */
+  const SECTION_NOTE = {
+    "Start here": "Orientation for developers new to XDC.",
+    "Smart contracts and tokens": "Deploying, verifying and token standards.",
+    "Tutorials": "Step-by-step builds you can follow along with.",
+    "APIs, SDKs and data": "RPC, explorer APIs, SDKs and indexers.",
+    "Running a node": "Install, secure, monitor, peer and upgrade nodes.",
+    "Subnets": "Private XDC chains checkpointed to mainnet.",
+    "Cross-chain and stablecoins": "USDC, CCIP, LayerZero and enterprise rails.",
+    "Protocol and upgrades": "Consensus, hard forks, client source and audits.",
+    "Governance and standards": "XIPs, XDCDAO and DAOFIN.",
+    "Ecosystem projects": "Docs from teams building on XDC.",
+    "Community and support": "Where to ask, report and contribute."
+  };
+  const readMatch = a => {
+    const words = st.rq.toLowerCase().split(/\s+/).filter(Boolean);
+    return (st.rarch || (!a.archived && a.linkStatus !== "dead")) && (st.rsrc === "all" || a.author === st.rsrc)
+      && words.every(w => (a.title + " " + a.source + " " + a.author + " " + a.section).toLowerCase().includes(w));
+  };
+  function renderReadChips() {
+    const base = ARTICLES.filter(readMatch);
+    const n = base.reduce((m, a) => (m[a.section] = (m[a.section] || 0) + 1, m), {});
+    $("#rcats").innerHTML = [`<button class="chip" type="button" data-rcat="all" aria-pressed="${st.rcat === "all"}">All <span class="n">${base.length}</span></button>`]
+      .concat(SECTIONS.filter(x => n[x]).map(x => `<button class="chip" type="button" data-rcat="${esc(x)}" aria-pressed="${st.rcat === x}">${esc(x)} <span class="n">${n[x]}</span></button>`)).join("");
+  }
+  function renderReading() {
+    renderReadChips();
+    const out = SECTIONS.filter(x => st.rcat === "all" || x === st.rcat).map(x => {
+      const items = ARTICLES.filter(a => a.section === x && readMatch(a));
+      if (!items.length) return "";
+      return `<div class="group"><div class="group-head"><h3>${esc(x)}</h3><p>${esc(SECTION_NOTE[x] || "")}</p></div>
+        <ul class="reads">${items.map(a => `<li><a href="${esc(a.url)}" rel="noopener">${esc(a.title)}</a><span class="src">${a.archived ? `<span class="kind kind-old">Archived</span>` : ""}${esc(a.source)} · ${esc(a.author)}</span></li>`).join("")}</ul></div>`;
+    }).join("");
+    $("#reading-list").innerHTML = out || `<p class="empty">No guides match that search.</p>`;
+  }
+  function fillPublishers() {
+    const counts = ARTICLES.reduce((m, a) => (m[a.author] = (m[a.author] || 0) + 1, m), {});
+    $("#rsrc").innerHTML = `<option value="all">Published by anyone</option>` + Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([k, v]) => `<option value="${esc(k)}">${esc(k)} (${v})</option>`).join("");
+  }
+
+  /* ---------------- RPC status ---------------- */
+  const TIMEOUT = 7000;
+  const BODY = JSON.stringify({ jsonrpc: "2.0", id: 1, method: "eth_blockNumber", params: [] });
+  async function probeHttp(url) {
+    const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), TIMEOUT), t0 = performance.now();
+    try {
+      const r = await fetch(url, { method: "POST", signal: ctl.signal, headers: { "Content-Type": "application/json" }, body: BODY, cache: "no-store" });
+      const ms = Math.round(performance.now() - t0);
+      if (!r.ok) return { ok: false, err: "HTTP " + r.status };
+      const j = await r.json();
+      return j && j.result ? { ok: true, block: parseInt(j.result, 16), ms } : { ok: false, err: (j && j.error && j.error.message) || "No block number returned" };
+    } catch (e) {
+      return e.name === "AbortError" ? { ok: false, err: "No answer within 7 s" } : { ok: false, err: "Blocked or unreachable from this browser", net: true };
+    } finally { clearTimeout(timer); }
+  }
+  function probeWs(url) {
+    return new Promise(resolve => {
+      let ws, done = false, opened = false;
+      const t0 = performance.now();
+      const finish = res => { if (done) return; done = true; clearTimeout(timer); try { ws && ws.close(); } catch {} resolve(res); };
+      const timer = setTimeout(() => finish({ ok: false, err: "No answer within 7 s" }), TIMEOUT);
+      try { ws = new WebSocket(url); } catch { return finish({ ok: false, err: "Blocked or unreachable from this browser", net: true }); }
+      ws.onopen = () => { opened = true; ws.send(BODY); };
+      ws.onmessage = ev => {
+        try { const j = JSON.parse(ev.data); finish(j.result ? { ok: true, block: parseInt(j.result, 16), ms: Math.round(performance.now() - t0) } : { ok: false, err: "No block number returned" }); }
+        catch { finish({ ok: false, err: "Unreadable reply" }); }
+      };
+      ws.onerror = () => finish(opened ? { ok: false, err: "Connection error" } : { ok: false, err: "Blocked or unreachable from this browser", net: true });
+    });
+  }
+  const probe = url => url.startsWith("wss://") ? probeWs(url) : probeHttp(url);
+
+  const results = new Map(); // url -> result
+  const PRIV = { none: ["No tracking", "none"], limited: ["Limited", "limited"], yes: ["Tracks usage", "yes"], unspecified: ["Not stated", "unspecified"] };
+  const short = u => u.replace(/^(https|wss):\/\//, "");
+
+  function rowHtml(net, e) {
+    const r = results.get(e.url);
+    const best = bestBlock(net);
+    let status = `<span class="st wait">Checking…</span>`, block = "–", behind = "–", ms = "–";
+    if (r) {
+      if (!r.ok) status = r.net ? `<span class="st na" title="${esc(r.err)}">Unreachable here</span>` : `<span class="st down" title="${esc(r.err)}">Not answering</span>`;
+      else {
+        const gap = best - r.block;
+        status = gap > 5 ? `<span class="st lag">Lagging</span>` : `<span class="st up">Up</span>`;
+        block = r.block.toLocaleString(); behind = gap <= 0 ? "0" : gap.toLocaleString(); ms = r.ms + " ms";
+      }
+    }
+    const [plabel, pcls] = PRIV[e.privacy] || PRIV.unspecified;
+    const isWs = e.url.startsWith("wss://");
+    const wallet = isWs ? "" : `<button class="mini wallet" type="button" data-wallet="${esc(e.url)}" data-chain="${net.chainId}" title="Add ${esc(net.walletName)} to your browser wallet using this RPC"><svg><use href="#i-wallet"/></svg><span class="lbl">Add to wallet</span></button>`;
+    return `<tr${e.recommended ? ` class="rec"` : ""}>
+      <td><div class="ep"><b>${esc(e.provider)}${e.recommended ? `<span class="rec-flag">Recommended</span>` : ""}</b><code title="${esc(e.url)}">${esc(e.url).replace(/([\/.\-])/g, "$1<wbr>")}</code></div></td>
+      <td>${status}</td><td class="num col-blk">${block}</td><td class="num col-blk">${behind}</td><td class="num">${ms}</td>
+      <td class="col-track"><span class="priv ${pcls}">${plabel}</span></td>
+      <td><div class="acts">${wallet}<button class="mini" type="button" data-copy="${esc(e.url)}" title="Copy ${esc(e.url)}" aria-label="Copy ${esc(e.url)}"><svg><use href="#i-copy"/></svg><span class="lbl">Copy</span></button></div></td>
+    </tr>`;
+  }
+  function bestBlock(net) {
+    return Math.max(0, ...net.endpoints.map(e => results.get(e.url)).filter(r => r && r.ok).map(r => r.block));
+  }
+  const ORDER = r => !r ? 3 : r.ok ? 0 : r.net ? 2 : 1;
+  function renderRpc() {
+    if (!RPCS) return;
+    const nets = RPCS.networks.filter(n => st.net === "all" || n.name === st.net);
+    $("#rpc-body").innerHTML = nets.map(n => {
+      const sorted = [...n.endpoints].sort((a, b) => (!!b.recommended - !!a.recommended) || (ORDER(results.get(a.url)) - ORDER(results.get(b.url))) || ((results.get(a.url) || {}).ms || 1e9) - ((results.get(b.url) || {}).ms || 1e9));
+      const http = sorted.filter(e => !e.url.startsWith("wss://")), ws = sorted.filter(e => e.url.startsWith("wss://"));
+      return `<tr class="grp"><td colspan="7">${esc(n.name)} <span>· chain ID ${n.chainId} · ${n.endpoints.length} endpoints</span></td></tr>`
+        + (http.length ? `<tr class="sub"><td colspan="7">HTTPS RPC · ${http.length}</td></tr>` + http.map(e => rowHtml(n, e)).join("") : "")
+        + (ws.length ? `<tr class="sub"><td colspan="7">WebSocket (WSS) · ${ws.length}</td></tr>` + ws.map(e => rowHtml(n, e)).join("") : "");
+    }).join("");
+    // summary over the visible networks
+    let up = 0, lag = 0, down = 0;
+    for (const n of nets) {
+      const best = bestBlock(n);
+      for (const e of n.endpoints) {
+        const r = results.get(e.url); if (!r) continue;
+        if (!r.ok) { if (!r.net) down++; } else if (best - r.block > 5) lag++; else up++;
+      }
+    }
+    $("#r-up").textContent = up; $("#r-lag").textContent = lag; $("#r-down").textContent = down;
+    const main = RPCS.networks.find(n => n.chainId === 50);
+    const b = main ? bestBlock(main) : 0;
+    $("#r-best").textContent = b ? b.toLocaleString() : "–";
+  }
+
+  let running = false, lastAllBlocked = false;
+  async function checkAll() {
+    if (!RPCS || running) return;
+    running = true; $("#recheck").disabled = true;
+    const all = RPCS.networks.flatMap(n => n.endpoints);
+    await Promise.all(all.map(async e => { results.set(e.url, await probe(e.url)); renderRpc(); }));
+    lastAllBlocked = all.every(e => (results.get(e.url) || {}).net);
+    $("#rpc-banner").innerHTML = lastAllBlocked ? `<div class="banner">None of the endpoints could be reached from this page. Preview windows block outside requests, so the checks only run on xdcoutpost.xyz. If you're on the live site, check your connection or any ad or script blocker.</div>` : "";
+    running = false; $("#recheck").disabled = false;
+    resetTimer();
+  }
+
+  // Auto-refresh: only while the RPC tab is open and the browser tab is visible.
+  let nextAt = 0, tick = null;
+  const interval = () => +$("#interval").value;
+  const rpcVisible = () => !$("#view-rpc-status").hidden && !document.hidden;
+  function resetTimer() { nextAt = interval() ? Date.now() + interval() * 1000 : 0; }
+  function startTicker() {
+    if (tick) return;
+    tick = setInterval(() => {
+      const cd = $("#countdown");
+      if (!interval()) { cd.textContent = ""; return; }
+      if (document.hidden) { cd.textContent = "Paused while hidden"; return; }
+      if (running) { cd.textContent = "Checking…"; return; }
+      const s = Math.max(0, Math.ceil((nextAt - Date.now()) / 1000));
+      cd.textContent = `Next check in ${s} s`;
+      if (s === 0 && rpcVisible()) checkAll();
+    }, 500);
+  }
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && rpcVisible() && nextAt && Date.now() > nextAt) checkAll(); });
+
+  /* ---------------- Add to wallet ---------------- */
+  let toastTimer;
+  function toast(msg, bad) {
+    const t = $("#toast"); t.textContent = msg; t.classList.toggle("bad", !!bad); t.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.hidden = true, 5000);
+  }
+  async function addToWallet(url, chainId) {
+    const net = RPCS.networks.find(n => n.chainId === chainId);
+    const eth = window.ethereum;
+    if (!eth || !eth.request) { toast("No browser wallet found. Install MetaMask or another EVM wallet extension, or copy the URL and add the network by hand.", true); return; }
+    try {
+      await eth.request({ method: "wallet_addEthereumChain", params: [{
+        chainId: "0x" + chainId.toString(16), chainName: net.walletName, rpcUrls: [url],
+        nativeCurrency: net.currency, blockExplorerUrls: [net.explorer]
+      }] });
+      track("atlas/rpc/add-wallet");
+      toast(`${net.walletName} is set up in your wallet with ${url.replace(/^https:\/\//, "")}.`);
+    } catch (e) {
+      toast(e && e.code === 4001 ? "Cancelled in your wallet." : "Your wallet couldn't add it: " + ((e && e.message) || "unknown error"), true);
+    }
+  }
+
+  /* ---------------- Routing ---------------- */
+  const VIEWS = ["ecosystem", "reading", "rpc-status"];
+  let rpcStarted = false;
+  function route() {
+    const h = location.hash.slice(1);
+    const v = VIEWS.includes(h) ? h : "ecosystem"; // old #tools links fall through to here
+    VIEWS.forEach(x => $("#view-" + x).hidden = x !== v);
+    document.querySelectorAll("a[data-view]").forEach(a => a.setAttribute("aria-current", a.dataset.view === v ? "page" : "false"));
+    if (v === "rpc-status" && RPCS && !rpcStarted) { rpcStarted = true; renderRpc(); checkAll(); startTicker(); }
+    if (h === "add") $("#add").scrollIntoView();
+    else if (VIEWS.includes(h)) {
+      // Keep the tab bar in view: jump back to the top of the section only if we've scrolled past it.
+      const hero = $(".hero"), y = hero.offsetTop + hero.offsetHeight - 64;
+      if (window.scrollY > y) window.scrollTo({ top: y, behavior: "instant" });
+    }
+  }
+
+  /* ---------------- Events ---------------- */
+  $("#q").addEventListener("input", e => { st.q = e.target.value.trim(); renderTools(); });
+  $("#kind").addEventListener("change", e => { st.kind = e.target.value; renderTools(); });
+  $("#show-archived").addEventListener("change", e => { st.archived = e.target.checked; renderTools(); });
+  $("#cats").addEventListener("click", e => { const b = e.target.closest(".chip"); if (b) { st.cat = b.dataset.cat; renderTools(); } });
+  $("#grid").addEventListener("click", e => {
+    const b = e.target.closest("[data-more]"); if (!b) return;
+    const c = b.dataset.more; expanded.has(c) ? expanded.delete(c) : expanded.add(c); renderTools();
+  });
+  $("#rq").addEventListener("input", e => { st.rq = e.target.value.trim(); renderReading(); });
+  $("#r-archived").addEventListener("change", e => { st.rarch = e.target.checked; renderReading(); });
+  $("#rsrc").addEventListener("change", e => { st.rsrc = e.target.value; renderReading(); });
+  $("#rcats").addEventListener("click", e => { const b = e.target.closest("[data-rcat]"); if (b) { st.rcat = b.dataset.rcat; renderReading(); } });
+  $("#recheck").addEventListener("click", checkAll);
+  $("#interval").addEventListener("change", e => { store.set("interval", e.target.value); resetTimer(); });
+  $("#net-filter").addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    st.net = b.dataset.net; store.set("net", st.net);
+    document.querySelectorAll("#net-filter .chip").forEach(c => c.setAttribute("aria-pressed", c === b));
+    renderRpc();
+  });
+  document.addEventListener("click", async e => {
+    const t = e.target.closest("[data-track]"); if (t) track(t.dataset.track);
+    const w = e.target.closest("[data-wallet]"); if (w) { addToWallet(w.dataset.wallet, +w.dataset.chain); return; }
+    const sc = e.target.closest("[data-scroll]"); if (sc) { e.preventDefault(); document.getElementById(sc.dataset.scroll).scrollIntoView(); return; }
+    const b = e.target.closest("[data-copy], [data-copy-from], #copy-template"); if (!b) return;
+    const text = b.id === "copy-template" ? $("#template").textContent : b.dataset.copyFrom ? document.getElementById(b.dataset.copyFrom).textContent : b.dataset.copy;
+    const old = b.innerHTML, wasBtn = b.classList.contains("btn") || b.classList.contains("mini");
+    try { await navigator.clipboard.writeText(text); b.innerHTML = wasBtn ? "Copied" : "✓"; }
+    catch { b.innerHTML = wasBtn ? "Copy failed" : "✕"; }
+    setTimeout(() => b.innerHTML = old, 1400);
+  });
+  addEventListener("hashchange", route);
+
+  /* ---------------- External links open in a new tab ---------------- */
+  const OWN_HOSTS = new Set([location.hostname, "xdcoutpost.xyz", "www.xdcoutpost.xyz"]);
+  function markExternal() {
+    document.querySelectorAll("a[href]:not([data-ext])").forEach(a => {
+      a.dataset.ext = "";
+      let u; try { u = new URL(a.getAttribute("href"), location.href); } catch { return; }
+      if (!/^https?:$/.test(u.protocol)) return;
+      // Cards and guides always open in a new tab so visitors keep their place;
+      // other links only when they leave this site.
+      if (!a.closest("#grid, #reading-list") && OWN_HOSTS.has(u.hostname)) return;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.insertAdjacentHTML("beforeend", '<span class="vh"> (opens in a new tab)</span>');
+    });
+  }
+  new MutationObserver(markExternal).observe(document.body, { childList: true, subtree: true });
+  markExternal();
+
+  /* ---------------- Boot ---------------- */
+  (async () => {
+    const iv = store.get("interval"); if (iv !== null && $(`#interval option[value="${iv}"]`)) $("#interval").value = iv;
+    const nt = store.get("net"); if (nt) { st.net = nt; document.querySelectorAll("#net-filter .chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.net === nt)); }
+    route();
+    try {
+      const [t, a, r] = await Promise.all([load("data/tools.json"), load("data/articles.json"), load("data/rpcs.json")]);
+      TOOLS = t.tools; CATS = t.categories; ARTICLES = a.articles; SECTIONS = a.sections; RPCS = r;
+      const live = TOOLS.filter(x => x.status !== "archived");
+      $("#s-tools").textContent = live.length;
+      $("#s-reading").textContent = ARTICLES.filter(x => !x.archived).length;
+      $("#s-rpc").textContent = RPCS.networks.reduce((n, x) => n + x.endpoints.length, 0);
+      $("#rpc-note").textContent = RPCS.note || "";
+      fillPublishers(); renderTools(); renderReading(); route();
+    } catch (err) {
+      $("#grid").innerHTML = `<li class="empty">Couldn't load the Atlas data (${esc(err.message)}). If you opened this file straight from disk, serve the folder instead, for example with <code>python3 -m http.server</code>.</li>`;
+    }
+  })();
+})();
+</script>
+</body>
+</html>
