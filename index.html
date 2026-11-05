@@ -6,7 +6,7 @@
   <title>XDC Atlas</title>
   <meta name="description" content="XDC Atlas: a map of the XDC Network ecosystem, with developer guides and live RPC status, curated by XDC Outpost.">
   <link rel="canonical" href="https://xdcoutpost.xyz/XDC_Atlas/">
-  <meta name="theme-color" content="#1E1A4A">
+  <meta name="theme-color" content="#0B0D1A">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xdcoutpost.xyz/XDC_Atlas/">
@@ -31,15 +31,15 @@
 
     :root {
       /* Same tokens as xdcoutpost.xyz. Layout: sticky header with section tabs, compact hero, then one band per view. */
-      --night: #1E1A4A;
-      --deep: #19163F;
-      --dusk: #2B2566;
-      --line: #443D84;
-      --ink: #F2EDFF;
-      --mist: #C3B8EA;
-      --signal: #8FDCFF;
-      --flare: #FF9EBB;
-      --mint: #6EE7B7;
+      --night: #0B0D1A;
+      --deep: #090B16;
+      --dusk: #151931;
+      --line: #262C4A;
+      --ink: #EEF0FA;
+      --mist: #9EA4BF;
+      --signal: #6FDFFF;
+      --flare: #FF8FB4;
+      --mint: #7EEBC0;
       --amber: #FFD58A;
 
       --display: "Bricolage", "Avenir Next", "Segoe UI", sans-serif;
@@ -70,7 +70,7 @@
     /* ---------- Header (as on the main site) ---------- */
     .site-header {
       position: sticky; top: 0; z-index: 10;
-      background: rgb(30 26 74 / 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      background: rgb(11 13 26 / 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid transparent; transition: border-color 0.2s;
     }
     .site-header.scrolled { border-bottom-color: var(--line); }
@@ -101,7 +101,7 @@
     .stats b { color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 1.35rem; font-variant-numeric: tabular-nums; margin-right: 0.35rem; }
 
     /* ---------- In-page section tabs (sticky under the header) ---------- */
-    .ptabs { position: sticky; top: 4rem; z-index: 9; background: rgb(30 26 74 / 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .ptabs { position: sticky; top: 4rem; z-index: 9; background: rgb(11 13 26 / 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
     .ptabs-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
     .ptab { display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--dusk); color: var(--ink); text-decoration: none; transition: border-color 0.15s, background-color 0.15s; }
     .ptab:hover { border-color: var(--signal); color: var(--ink); }
@@ -170,7 +170,7 @@
       background: var(--dusk); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem 0.9rem;
       transition: border-color 0.15s, background-color 0.15s;
     }
-    .card:hover { border-color: var(--signal); background: #312A70; }
+    .card:hover { border-color: var(--signal); background: #1C2140; }
     .card.dim { opacity: 0.7; }
     .card .body { display: grid; gap: 0.3rem; min-width: 0; }
     .logo { width: 2.6rem; height: 2.6rem; border-radius: 10px; display: grid; place-items: center; font: 700 0.95rem var(--display); letter-spacing: 0.01em; color: hsl(var(--h) 85% 86%); background: hsl(var(--h) 42% 30%); border: 1px solid hsl(var(--h) 45% 40%); flex: none; overflow: hidden; }
@@ -196,7 +196,7 @@
     .kind { font-family: var(--body); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.01em; padding: 0.1rem 0.55rem; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
     .kind-web { color: var(--signal); }
     .kind-repo { color: var(--mist); }
-    .kind-bot { color: #B9F0D6; }
+    .kind-bot { color: #B5F3DA; }
     .kind-soon { color: var(--flare); border-style: dashed; }
     .kind-old { color: var(--mist); border-style: dashed; opacity: 0.85; }
     .empty { grid-column: 1 / -1; padding: 2.5rem 1rem; text-align: center; color: var(--mist); border: 1px dashed var(--line); border-radius: 12px; }
@@ -225,7 +225,7 @@
     .group-head h3 { font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: 1.4rem; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.25rem; }
     .group-head p { margin: 0; color: var(--mist); font-size: 0.95rem; }
     .reads { list-style: none; margin: 0; padding: 0; }
-    .reads li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid rgb(68 61 132 / 0.6); }
+    .reads li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid rgb(38 44 74 / 0.6); }
     .reads li:first-child { padding-top: 0; }
     .reads li:last-child { border-bottom: 0; }
     .reads a { color: var(--ink); text-decoration: none; font-weight: 500; }
@@ -273,19 +273,19 @@
       .tablewrap .mini .lbl { display: inline; }
       .ep code { max-width: none; }
       .tablewrap td.col-blk, .tablewrap td.col-track { display: none; }
-      .tablewrap tr.rec { box-shadow: inset 3px 0 0 var(--flare); background: rgb(255 158 187 / 0.07); }
+      .tablewrap tr.rec { box-shadow: inset 3px 0 0 var(--flare); background: rgb(255 143 180 / 0.07); }
       .tablewrap tr.rec td, .tablewrap tr.rec td:first-child { background: transparent; box-shadow: none; }
     }
     .proto { font: 600 0.68rem var(--body); letter-spacing: 0.05em; color: var(--mist); border: 1px solid var(--line); border-radius: 4px; padding: 0.05rem 0.35rem; margin-left: 0.4rem; vertical-align: 1px; }
     .st { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 600; }
     .st::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: currentColor; }
-    .st.up { color: var(--mint); } .st.up::before { box-shadow: 0 0 0 4px rgb(110 231 183 / 0.18); }
+    .st.up { color: var(--mint); } .st.up::before { box-shadow: 0 0 0 4px rgb(126 235 192 / 0.18); }
     .st.lag { color: var(--amber); }
     .st.down { color: var(--flare); }
     .st.na { color: var(--mist); font-weight: 500; }
     .st.wait { color: var(--mist); font-weight: 500; }
     tr.sub td { background: var(--deep); color: var(--mist); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.55rem; padding-bottom: 0.55rem; }
-    tr.rec td { background: rgb(255 158 187 / 0.07); }
+    tr.rec td { background: rgb(255 143 180 / 0.07); }
     tr.rec td:first-child { box-shadow: inset 3px 0 0 var(--flare); }
     .rec-flag { font: 600 0.7rem var(--body); color: var(--night); background: var(--flare); border-radius: 999px; padding: 0.1rem 0.55rem; margin-left: 0.5rem; vertical-align: 2px; letter-spacing: 0.01em; }
     .acts { display: flex; gap: 0.4rem; justify-content: flex-end; align-items: center; }
@@ -308,15 +308,17 @@
     .site-footer p { margin: 0; }
     .site-footer a { display: inline-block; padding: 0.6rem 0; }
   </style>
+  <link rel="stylesheet" href="/assets/outpost.css">
+  <script src="/assets/outpost.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-beacon" viewBox="0 0 32 32">
-      <path d="M11 29 L16 11 L21 29 M12.6 23 H19.4 M13.8 18 H18.2" fill="none" stroke="#C3B8EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="16" cy="7.5" r="3" fill="#FF9EBB"/>
-      <path d="M9.5 4.5 A9 9 0 0 0 9.5 10.5 M22.5 4.5 A9 9 0 0 1 22.5 10.5" fill="none" stroke="#FF9EBB" stroke-width="1.75" stroke-linecap="round"/>
+      <path d="M11 29 L16 11 L21 29 M12.6 23 H19.4 M13.8 18 H18.2" fill="none" stroke="#9EA4BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="16" cy="7.5" r="3" fill="#FF8FB4"/>
+      <path d="M9.5 4.5 A9 9 0 0 0 9.5 10.5 M22.5 4.5 A9 9 0 0 1 22.5 10.5" fill="none" stroke="#FF8FB4" stroke-width="1.75" stroke-linecap="round"/>
     </symbol>
     <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
     <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h8l6 6v14H6zM13 3.5V9h5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 13h8M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
