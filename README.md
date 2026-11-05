@@ -4,12 +4,6 @@ A map of the XDC Network ecosystem: tools, apps and services, developer guides a
 
 Live at **https://xdcoutpost.xyz/XDC_Atlas/**
 
-## What's in it
-
-- **Ecosystem**: tools, apps and services for XDC (community-built, official and third-party), filterable by category and builder.
-- **Reading**: developer docs, tutorials and references from across the XDC ecosystem, with older material marked as archived. To add one, open a pull request adding an entry to `data/articles.json` (`title`, `url`, `section`, `source`, `author`, `archived`).
-- **Network status**: a live check of the public XDC RPC endpoints, run from the visitor's browser.
-
 ## Add your project
 
 Open a pull request adding an entry to `data/tools.json`:
