@@ -6,7 +6,7 @@
   <title>XDC Atlas</title>
   <meta name="description" content="XDC Atlas: a map of the XDC Network ecosystem, with developer guides and live RPC status, curated by XDC Outpost.">
   <link rel="canonical" href="https://xdcoutpost.xyz/XDC_Atlas/">
-  <meta name="theme-color" content="#0B0D1A">
+  <meta name="theme-color" content="#FFFFFF">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xdcoutpost.xyz/XDC_Atlas/">
@@ -19,11 +19,6 @@
   <style>
     /* Fonts are shared with the main site (/assets/fonts). The second url is a local fallback for previews. */
     @font-face {
-      font-family: "Bricolage";
-      src: url("/assets/fonts/bricolage.woff2") format("woff2-variations"), url("assets/fonts/bricolage.woff2") format("woff2-variations");
-      font-weight: 200 800; font-stretch: 75% 100%; font-display: swap;
-    }
-    @font-face {
       font-family: "Instrument Sans";
       src: url("/assets/fonts/instrument-sans.woff2") format("woff2-variations"), url("assets/fonts/instrument-sans.woff2") format("woff2-variations");
       font-weight: 400 700; font-stretch: 75% 100%; font-display: swap;
@@ -31,24 +26,24 @@
 
     :root {
       /* Same tokens as xdcoutpost.xyz. Layout: sticky header with section tabs, compact hero, then one band per view. */
-      --night: #0B0D1A;
-      --deep: #090B16;
-      --dusk: #151931;
-      --line: #262C4A;
-      --ink: #EEF0FA;
-      --mist: #9EA4BF;
-      --signal: #6FDFFF;
-      --flare: #FF8FB4;
-      --mint: #7EEBC0;
-      --amber: #FFD58A;
+      --night: #F7F9FC;
+      --deep: #EEF2F7;
+      --dusk: #FFFFFF;
+      --line: #DFE5ED;
+      --ink: #0F1E33;
+      --mist: #475569;
+      --signal: #1D5C96;
+      --flare: #8C6A24;
+      --mint: #1F8A62;
+      --amber: #8F6410;
 
-      --display: "Bricolage", "Avenir Next", "Segoe UI", sans-serif;
+      --display: "Instrument Sans", "Helvetica Neue", "Segoe UI", sans-serif;
       --body: "Instrument Sans", "Helvetica Neue", "Segoe UI", sans-serif;
       --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
       --wrap: 72rem;
       --gutter: clamp(1.25rem, 4vw, 2.5rem);
-      color-scheme: dark;
+      color-scheme: light;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -70,12 +65,12 @@
     /* ---------- Header (as on the main site) ---------- */
     .site-header {
       position: sticky; top: 0; z-index: 10;
-      background: rgb(11 13 26 / 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      background: rgb(255 255 255 / 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid transparent; transition: border-color 0.2s;
     }
     .site-header.scrolled { border-bottom-color: var(--line); }
     .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 4rem; gap: 1rem; }
-    .brand { display: flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.01em; white-space: nowrap; }
+    .brand { display: flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; font-size: 1.2rem; letter-spacing: -0.01em; white-space: nowrap; }
     .brand svg { width: 1.6rem; height: 1.6rem; flex: none; }
     .brand .sub { color: var(--mist); font-weight: 500; }
     .site-nav { display: flex; gap: clamp(1rem, 3vw, 2rem); }
@@ -92,21 +87,21 @@
     /* ---------- Hero ---------- */
     .hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(1.5rem, 3vw, 2.25rem); }
     .hero h1 {
-      font-family: var(--display); font-weight: 750; font-stretch: 82%;
-      font-size: clamp(2.5rem, 6.5vw, 4.5rem); line-height: 0.95; letter-spacing: -0.028em;
+      font-family: var(--display); font-weight: 600;
+      font-size: clamp(2.5rem, 6.5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.028em;
       margin: 0 0 1.25rem; text-wrap: balance;
     }
     .hero .lede { font-size: clamp(1.0625rem, 1.8vw, 1.2rem); color: var(--mist); max-width: 36em; margin: 0; }
     .stats { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin: 1.5rem 0 0; padding: 0; list-style: none; color: var(--mist); font-size: 0.95rem; }
-    .stats b { color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 1.35rem; font-variant-numeric: tabular-nums; margin-right: 0.35rem; }
+    .stats b { color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 1.35rem; font-variant-numeric: tabular-nums; margin-right: 0.35rem; }
 
     /* ---------- In-page section tabs (sticky under the header) ---------- */
-    .ptabs { position: sticky; top: 4rem; z-index: 9; background: rgb(11 13 26 / 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .ptabs { position: sticky; top: 4rem; z-index: 9; background: rgb(255 255 255 / 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
     .ptabs-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
     .ptab { display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--dusk); color: var(--ink); text-decoration: none; transition: border-color 0.15s, background-color 0.15s; }
     .ptab:hover { border-color: var(--signal); color: var(--ink); }
     .ptab svg { width: 1.6rem; height: 1.6rem; flex: none; fill: none; stroke: var(--signal); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .ptab .t { display: block; font-family: var(--display); font-weight: 700; font-size: 1.15rem; line-height: 1.2; }
+    .ptab .t { display: block; font-family: var(--display); font-weight: 600; font-size: 1.15rem; line-height: 1.2; }
     .ptab .d { display: block; font-size: 0.85rem; color: var(--mist); }
     .ptab .d b { color: var(--ink); font-variant-numeric: tabular-nums; }
     .ptab[aria-current="page"] { background: var(--signal); border-color: var(--signal); color: var(--night); }
@@ -123,7 +118,7 @@
     /* ---------- Bands ---------- */
     .band { background: var(--deep); padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3.5rem, 7vw, 5rem); }
     .view[hidden] { display: none; }
-    .band h2 { font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: clamp(1.75rem, 3.5vw, 2.25rem); letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 0.5rem; }
+    .band h2 { font-family: var(--display); font-weight: 600; font-size: clamp(1.75rem, 3.5vw, 2.25rem); letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 0.5rem; }
     .band .intro { color: var(--mist); margin: 0 0 1.75rem; max-width: 40em; }
 
     /* ---------- Controls ---------- */
@@ -156,7 +151,7 @@
     /* ---------- Tool groups ---------- */
     .tgroup { margin-bottom: 2.25rem; }
     .tgroup-head { display: flex; align-items: baseline; gap: 0.75rem; margin: 0 0 0.85rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line); }
-    .tgroup-head h3 { margin: 0; font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: 1.3rem; letter-spacing: -0.01em; }
+    .tgroup-head h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.3rem; letter-spacing: -0.01em; }
     .tgroup-head .n { color: var(--mist); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
     .tgroup-head .more { margin-left: auto; background: none; border: 0; color: var(--signal); font: 600 0.9rem var(--body); cursor: pointer; padding: 0.25rem 0; }
     .tgroup-head .more:hover { color: var(--ink); text-decoration: underline; }
@@ -170,10 +165,10 @@
       background: var(--dusk); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem 0.9rem;
       transition: border-color 0.15s, background-color 0.15s;
     }
-    .card:hover { border-color: var(--signal); background: #1C2140; }
+    .card:hover { border-color: var(--signal); background: #E7EEF6; }
     .card.dim { opacity: 0.7; }
     .card .body { display: grid; gap: 0.3rem; min-width: 0; }
-    .logo { width: 2.6rem; height: 2.6rem; border-radius: 10px; display: grid; place-items: center; font: 700 0.95rem var(--display); letter-spacing: 0.01em; color: hsl(var(--h) 85% 86%); background: hsl(var(--h) 42% 30%); border: 1px solid hsl(var(--h) 45% 40%); flex: none; overflow: hidden; }
+    .logo { width: 2.6rem; height: 2.6rem; border-radius: 10px; display: grid; place-items: center; font: 600 0.95rem var(--display); letter-spacing: 0.01em; color: hsl(var(--h) 85% 86%); background: hsl(var(--h) 42% 30%); border: 1px solid hsl(var(--h) 45% 40%); flex: none; overflow: hidden; }
     .logo svg { width: 1.7rem; height: 1.7rem; }
     .logo.has-img { background: #fff; border-color: var(--line); padding: 0.18rem; }
     .logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
@@ -196,7 +191,7 @@
     .kind { font-family: var(--body); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.01em; padding: 0.1rem 0.55rem; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
     .kind-web { color: var(--signal); }
     .kind-repo { color: var(--mist); }
-    .kind-bot { color: #B5F3DA; }
+    .kind-bot { color: #1F8A62; }
     .kind-soon { color: var(--flare); border-style: dashed; }
     .kind-old { color: var(--mist); border-style: dashed; opacity: 0.85; }
     .empty { grid-column: 1 / -1; padding: 2.5rem 1rem; text-align: center; color: var(--mist); border: 1px dashed var(--line); border-radius: 12px; }
@@ -222,10 +217,10 @@
     /* ---------- Reading (group layout from the main site) ---------- */
     .group { display: grid; gap: 1rem 3rem; grid-template-columns: 1fr; padding: 2rem 0; border-top: 1px solid var(--line); }
     @media (min-width: 900px) { .group { grid-template-columns: 15rem 1fr; } .group-head { position: sticky; top: 6rem; align-self: start; } }
-    .group-head h3 { font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: 1.4rem; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.25rem; }
+    .group-head h3 { font-family: var(--display); font-weight: 600; font-size: 1.4rem; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.25rem; }
     .group-head p { margin: 0; color: var(--mist); font-size: 0.95rem; }
     .reads { list-style: none; margin: 0; padding: 0; }
-    .reads li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid rgb(38 44 74 / 0.6); }
+    .reads li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid #DFE5ED; }
     .reads li:first-child { padding-top: 0; }
     .reads li:last-child { border-bottom: 0; }
     .reads a { color: var(--ink); text-decoration: none; font-weight: 500; }
@@ -237,7 +232,7 @@
     /* ---------- RPC status ---------- */
     .net-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; align-items: center; margin-bottom: 1.25rem; }
     .summary { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin: 0; padding: 0; list-style: none; color: var(--mist); font-size: 0.95rem; }
-    .summary b { color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 1.25rem; font-variant-numeric: tabular-nums; margin-right: 0.35rem; }
+    .summary b { color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 1.25rem; font-variant-numeric: tabular-nums; margin-right: 0.35rem; }
     .refresh { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; color: var(--mist); font-size: 0.9rem; }
     .refresh select { padding: 0.45rem 0.7rem; font-size: 0.92rem; }
     .countdown { font-variant-numeric: tabular-nums; min-width: 9.5em; }
@@ -273,19 +268,19 @@
       .tablewrap .mini .lbl { display: inline; }
       .ep code { max-width: none; }
       .tablewrap td.col-blk, .tablewrap td.col-track { display: none; }
-      .tablewrap tr.rec { box-shadow: inset 3px 0 0 var(--flare); background: rgb(255 143 180 / 0.07); }
+      .tablewrap tr.rec { box-shadow: inset 3px 0 0 var(--flare); background: rgb(140 106 36 / 0.07); }
       .tablewrap tr.rec td, .tablewrap tr.rec td:first-child { background: transparent; box-shadow: none; }
     }
     .proto { font: 600 0.68rem var(--body); letter-spacing: 0.05em; color: var(--mist); border: 1px solid var(--line); border-radius: 4px; padding: 0.05rem 0.35rem; margin-left: 0.4rem; vertical-align: 1px; }
     .st { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 600; }
     .st::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: currentColor; }
-    .st.up { color: var(--mint); } .st.up::before { box-shadow: 0 0 0 4px rgb(126 235 192 / 0.18); }
+    .st.up { color: var(--mint); } .st.up::before { box-shadow: 0 0 0 4px rgb(31 138 98 / 0.18); }
     .st.lag { color: var(--amber); }
     .st.down { color: var(--flare); }
     .st.na { color: var(--mist); font-weight: 500; }
     .st.wait { color: var(--mist); font-weight: 500; }
     tr.sub td { background: var(--deep); color: var(--mist); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.55rem; padding-bottom: 0.55rem; }
-    tr.rec td { background: rgb(255 143 180 / 0.07); }
+    tr.rec td { background: rgb(140 106 36 / 0.07); }
     tr.rec td:first-child { box-shadow: inset 3px 0 0 var(--flare); }
     .rec-flag { font: 600 0.7rem var(--body); color: var(--night); background: var(--flare); border-radius: 999px; padding: 0.1rem 0.55rem; margin-left: 0.5rem; vertical-align: 2px; letter-spacing: 0.01em; }
     .acts { display: flex; gap: 0.4rem; justify-content: flex-end; align-items: center; }
@@ -316,9 +311,9 @@
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-beacon" viewBox="0 0 32 32">
-      <path d="M11 29 L16 11 L21 29 M12.6 23 H19.4 M13.8 18 H18.2" fill="none" stroke="#9EA4BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="16" cy="7.5" r="3" fill="#FF8FB4"/>
-      <path d="M9.5 4.5 A9 9 0 0 0 9.5 10.5 M22.5 4.5 A9 9 0 0 1 22.5 10.5" fill="none" stroke="#FF8FB4" stroke-width="1.75" stroke-linecap="round"/>
+      <path d="M11 29 L16 11 L21 29 M12.6 23 H19.4 M13.8 18 H18.2" fill="none" stroke="#0F1E33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="16" cy="7.5" r="3" fill="#B08433"/>
+      <path d="M9.5 4.5 A9 9 0 0 0 9.5 10.5 M22.5 4.5 A9 9 0 0 1 22.5 10.5" fill="none" stroke="#B08433" stroke-width="1.75" stroke-linecap="round"/>
     </symbol>
     <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
     <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h8l6 6v14H6zM13 3.5V9h5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 13h8M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
@@ -521,6 +516,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>© <span id="year">2026</span> XDC Outpost, by <a href="https://github.com/s4njk4n?tab=repositories">s4njk4n</a>. Atlas data is plain JSON on <a href="https://github.com/s4njk4n/XDC_Atlas">GitHub</a>; corrections welcome.<br>Listings, guides and RPC endpoints are third-party and shown for information only. Inclusion is not an endorsement, and you use them at your own risk. Logos belong to their owners; projects can ask for theirs to be changed or removed by opening an issue on GitHub.</p>
+      <p class="foot-note">Built and run independently; not operated by the XDC Foundation or XinFin. Open source under the MIT licence and provided as is, without warranty.</p>
       <p><a href="#top">Back to top</a></p>
     </div>
   </footer>
