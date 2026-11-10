@@ -126,14 +126,6 @@
       "archived": false
     },
     {
-      "title": "Token and XIP standards overview",
-      "url": "https://docs.xdc.org/introduction/standards",
-      "section": "Smart contracts and tokens",
-      "source": "docs.xdc.org",
-      "author": "XDC Foundation",
-      "archived": false
-    },
-    {
       "title": "XRC1155 multi-token standard",
       "url": "https://github.com/XDC-Community/docs/blob/main/get-details/smart-contract-details/xrc-standards/xrc1155.md",
       "section": "Smart contracts and tokens",
@@ -179,14 +171,6 @@
       "section": "Smart contracts and tokens",
       "source": "Medium",
       "author": "OpenScan (XDCScan)",
-      "archived": false
-    },
-    {
-      "title": "Using XDC Remix",
-      "url": "https://docs.xdc.org/xdc-tools/xdc-remix",
-      "section": "Smart contracts and tokens",
-      "source": "docs.xdc.org",
-      "author": "XDC Foundation",
       "archived": false
     },
     {
@@ -395,14 +379,6 @@
       "section": "APIs, SDKs and data",
       "source": "docs.xdc.network",
       "author": "XDC Network",
-      "archived": false
-    },
-    {
-      "title": "Using XDC Explorer v2",
-      "url": "https://xdc.dev/blocksscan/mastering-xdc-blockchain-tracking-with-xdc-explorer-v2-1k46",
-      "section": "APIs, SDKs and data",
-      "source": "xdc.dev",
-      "author": "BlocksScan",
       "archived": false
     },
     {
@@ -710,14 +686,6 @@
       "archived": false
     },
     {
-      "title": "Subnet docs site (original)",
-      "url": "https://xinfinorg.github.io/xdc-subnet-docs/",
-      "section": "Subnets",
-      "source": "GitHub Pages",
-      "author": "XinFin",
-      "archived": false
-    },
-    {
       "title": "USDC and CCTP V2 on XDC (contract addresses)",
       "url": "https://www.circle.com/blog/now-available-usdc-cctp-v2-on-xdc-network",
       "section": "Cross-chain and stablecoins",
@@ -730,14 +698,6 @@
       "url": "https://docs.chain.link/ccip/directory/mainnet/chain/xdc-mainnet",
       "section": "Cross-chain and stablecoins",
       "source": "docs.chain.link",
-      "author": "Chainlink",
-      "archived": false
-    },
-    {
-      "title": "Chainlink CCIP launch on XDC",
-      "url": "https://dev.chain.link/changelog/ccip-on-xdc",
-      "section": "Cross-chain and stablecoins",
-      "source": "dev.chain.link",
       "author": "Chainlink",
       "archived": false
     },
@@ -862,14 +822,6 @@
       "archived": false
     },
     {
-      "title": "Proposal: porting XDPoS to modern go-ethereum",
-      "url": "https://xdc.network/snapshots/go-ethereum/docs/XDC_GETH_PORT_PROPOSAL.md",
-      "section": "Protocol and upgrades",
-      "source": "xdc.network",
-      "author": "XDC Network",
-      "archived": false
-    },
-    {
       "title": "Docs announcements and upgrade notices",
       "url": "https://docs.xdc.network/announce/",
       "section": "Protocol and upgrades",
@@ -939,22 +891,6 @@
       "section": "Governance and standards",
       "source": "XDC Community docs",
       "author": "XDC Community",
-      "archived": false
-    },
-    {
-      "title": "XIP template and rules (forum)",
-      "url": "https://forum.xinfin.org/t/about-the-xips-category/11",
-      "section": "Governance and standards",
-      "source": "XDC Forum",
-      "author": "XinFin",
-      "archived": false
-    },
-    {
-      "title": "XDC DAO discussions (forum)",
-      "url": "https://forum.xinfin.org/c/xdc-dao/14",
-      "section": "Governance and standards",
-      "source": "XDC Forum",
-      "author": "XinFin",
       "archived": false
     },
     {
@@ -1086,22 +1022,6 @@
       "archived": false
     },
     {
-      "title": "XDC community forum",
-      "url": "https://forum.xinfin.org/",
-      "section": "Community and support",
-      "source": "XDC Forum",
-      "author": "XinFin",
-      "archived": false
-    },
-    {
-      "title": "Subnet discussions (forum)",
-      "url": "https://forum.xinfin.org/tag/subnets",
-      "section": "Community and support",
-      "source": "XDC Forum",
-      "author": "XinFin",
-      "archived": false
-    },
-    {
       "title": "XDC Community docs source",
       "url": "https://github.com/XDC-Community/docs",
       "section": "Community and support",
@@ -1112,14 +1032,6 @@
     {
       "title": "Official docs source (edit or report issues)",
       "url": "https://github.com/XinFinOrg/Docs",
-      "section": "Community and support",
-      "source": "GitHub",
-      "author": "XinFin",
-      "archived": false
-    },
-    {
-      "title": "XinFin Open Hackathon",
-      "url": "https://github.com/XinFinOrg/Open-Hackathon",
       "section": "Community and support",
       "source": "GitHub",
       "author": "XinFin",
