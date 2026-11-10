@@ -294,14 +294,6 @@
       "archived": false
     },
     {
-      "title": "Issue a token on XDC with MyContract",
-      "url": "https://docs.xdc.org/tutorials/setting-up-your-own-token-on-xdc-network",
-      "section": "Tutorials",
-      "source": "docs.xdc.org",
-      "author": "XDC Foundation",
-      "archived": true
-    },
-    {
       "title": "JSON-RPC API reference",
       "url": "https://docs.xdc.network/api/json-rpc/",
       "section": "APIs, SDKs and data",
@@ -982,8 +974,8 @@
       "archived": false
     },
     {
-      "title": "Plugin 2.0 job setup",
-      "url": "https://knowledge.plugin.global/knowledgebase/articles/plugin-2-0-job-setup",
+      "title": "Plugin FAQ / Knowledge Bytes",
+      "url": "https://knowledge.plugin.global/index.html",
       "section": "Ecosystem projects",
       "source": "plugin.global",
       "author": "Plugin",
