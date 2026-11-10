@@ -94,14 +94,6 @@
       "archived": false
     },
     {
-      "title": "XDC Foundation docs: community resources",
-      "url": "https://docs.xdc.org/community",
-      "section": "Start here",
-      "source": "docs.xdc.org",
-      "author": "XDC Foundation",
-      "archived": false
-    },
-    {
       "title": "Smart contract overview",
       "url": "https://docs.xdc.network/smartcontract/",
       "section": "Smart contracts and tokens",
