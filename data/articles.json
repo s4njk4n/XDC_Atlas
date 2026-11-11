@@ -971,7 +971,8 @@
       "section": "Ecosystem projects",
       "source": "plugin.global",
       "author": "Plugin",
-      "archived": false
+      "archived": false,
+      "linkFails": 1
     },
     {
       "title": "Plugin FAQ / Knowledge Bytes",
@@ -979,7 +980,8 @@
       "section": "Ecosystem projects",
       "source": "plugin.global",
       "author": "Plugin",
-      "archived": false
+      "archived": false,
+      "linkFails": 1
     },
     {
       "title": "Plugin node installation (older docs)",
