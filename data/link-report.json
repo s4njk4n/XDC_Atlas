@@ -1,0 +1,102 @@
+{
+  "checked": "2026-11-11T09:51:47+00:00",
+  "dead": [
+    {
+      "type": "tool",
+      "name": "XDC Web3 Domains",
+      "url": "https://xdcdomains.xyz/",
+      "error": 404,
+      "consecutiveFails": 1
+    },
+    {
+      "type": "tool",
+      "name": "Asterizm",
+      "url": "https://asterizm.io/",
+      "error": 522,
+      "consecutiveFails": 1
+    },
+    {
+      "type": "tool",
+      "name": "Freewallet",
+      "url": "https://app.freewallet.org/auth/registration",
+      "error": 522,
+      "consecutiveFails": 1
+    },
+    {
+      "type": "article",
+      "name": "Plugin oracle documentation",
+      "url": "https://plugin.global/developers/docs.html",
+      "error": 404,
+      "consecutiveFails": 1
+    },
+    {
+      "type": "article",
+      "name": "Plugin FAQ / Knowledge Bytes",
+      "url": "https://knowledge.plugin.global/index.html",
+      "error": 404,
+      "consecutiveFails": 1
+    }
+  ],
+  "blocked": [
+    {
+      "type": "tool",
+      "name": "xdc3",
+      "url": "https://www.npmjs.com/package/xdc3",
+      "status": 403
+    },
+    {
+      "type": "tool",
+      "name": "xdc-connect",
+      "url": "https://www.npmjs.com/package/xdc-connect",
+      "status": 403
+    },
+    {
+      "type": "tool",
+      "name": "Razor Network",
+      "url": "https://razor.network/",
+      "status": 403
+    },
+    {
+      "type": "tool",
+      "name": "MyEtherWallet",
+      "url": "https://www.myetherwallet.com/wallet/access",
+      "status": 403
+    },
+    {
+      "type": "article",
+      "name": "Automated Hardhat verification on BlocksScan",
+      "url": "https://medium.com/@blocksscanio/streamline-hardhat-smart-contract-verification-a-guide-to-automated-verification-on-blocksscan-a54c5e1d4f4a",
+      "status": 403
+    },
+    {
+      "type": "article",
+      "name": "XDCScan contract verification guides",
+      "url": "https://medium.com/@openscan",
+      "status": 403
+    },
+    {
+      "type": "article",
+      "name": "All you need to know about XDC liquid staking",
+      "url": "https://medium.primenumbers.xyz/all-you-need-to-know-about-xdc-liquid-staking-ef2909d0d5a6",
+      "status": 403
+    },
+    {
+      "type": "article",
+      "name": "How to Improve the Peer-count of your XDC Network Full Node",
+      "url": "https://medium.com/@s4njk4n/how-to-improve-the-peer-count-of-your-xinfin-full-node-7372541528b5",
+      "status": 403
+    },
+    {
+      "type": "article",
+      "name": "How to Migrate an XDC Full Node from a Local Ubuntu 20.04 One-Click Installer to Docker on a Remote Ubuntu 20.04 Server",
+      "url": "https://medium.com/@s4njk4n/xinfin-xdc-network-how-to-migrate-a-full-node-from-a-local-ubuntu-20-04-b51624e96db8",
+      "status": 403
+    },
+    {
+      "type": "article",
+      "name": "How to Migrate a Full-Node from a Local Ubuntu 20.04 One-Click Installer to Docker on the Same Machine",
+      "url": "https://medium.com/@s4njk4n/xinfin-xdc-network-how-to-migrate-a-full-node-from-a-local-ubuntu-20-04-fe7af8ab38bd",
+      "status": 403
+    }
+  ]
+}
