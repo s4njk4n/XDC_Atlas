@@ -556,6 +556,29 @@
       }
     },
     {
+      "id": "xdc-network-stats-outpost",
+      "name": "XDC Network Stats",
+      "by": "s4njk4n",
+      "byUrl": "https://github.com/s4njk4n",
+      "kind": "community",
+      "category": "explorers",
+      "summary": "Fast live stats: blocks as they land, masternodes, epoch progress, a node map and a searchable node table.",
+      "type": "web-app",
+      "license": "MIT",
+      "status": "active",
+      "tags": [
+        "stats",
+        "nodes",
+        "masternode",
+        "live"
+      ],
+      "links": {
+        "app": "https://xdcoutpost.xyz/XDC_Network_Stats/",
+        "repo": "https://github.com/s4njk4n/XDC_Network_Stats"
+      },
+      "claimed": true
+    },
+    {
       "id": "defillama-xdc",
       "name": "DefiLlama: XDC",
       "by": "DefiLlama",
