@@ -77,10 +77,7 @@
     .site-nav a { color: var(--mist); text-decoration: none; font-size: 0.95rem; font-weight: 500; white-space: nowrap; padding: 0.75rem 0; border-bottom: 2px solid transparent; }
     .site-nav a:hover { color: var(--ink); }
     .site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--signal); }
-    @media (max-width: 640px) {
-      .brand .sub, .site-nav a[data-view] { display: none; }
-      .site-nav .wide { display: inline; }
-    }
+    @media (max-width: 640px) { .brand .sub { display: none; } }
     @media (max-width: 480px) { .brand .txt { display: none; } }
     @media (max-width: 380px) { .brand { font-size: 1.05rem; } .site-nav { gap: 0.9rem; } .site-nav a { font-size: 0.875rem; } }
 
@@ -328,11 +325,12 @@
         <svg aria-hidden="true"><use href="#i-beacon"/></svg>
         <span class="txt">XDC Outpost</span> <span class="sub">/ Atlas</span>
       </a>
-      <nav class="site-nav" aria-label="Atlas sections">
-        <a href="#ecosystem" data-view="ecosystem">Ecosystem</a>
-        <a href="#reading" data-view="reading">Reading</a>
-        <a href="#rpc-status" data-view="rpc-status">RPC status</a>
-        <a class="wide" href="https://xdcoutpost.xyz/">Outpost home</a>
+      <nav class="site-nav" aria-label="XDC Outpost">
+        <a href="/XDC_Network_Stats/"><span class="full">Network stats</span><span class="short">Stats</span></a>
+        <a href="#rpc-status" data-top="rpc"><span class="full">RPC status</span><span class="short">RPCs</span></a>
+        <a href="/#tools">Tools</a>
+        <a class="wide" href="#ecosystem" data-top="atlas" aria-current="page">Atlas</a>
+        <a class="wide" href="/#about">About</a>
       </nav>
     </div>
   </header>
@@ -808,6 +806,8 @@
     const v = VIEWS.includes(h) ? h : "ecosystem"; // old #tools links fall through to here
     VIEWS.forEach(x => $("#view-" + x).hidden = x !== v);
     document.querySelectorAll("a[data-view]").forEach(a => a.setAttribute("aria-current", a.dataset.view === v ? "page" : "false"));
+    // Shared top bar: "RPC status" is current on the RPC view, "Atlas" on the others
+    document.querySelectorAll(".site-nav a[data-top]").forEach(a => a.setAttribute("aria-current", (a.dataset.top === "rpc") === (v === "rpc-status") ? "page" : "false"));
     if (v === "rpc-status" && RPCS && !rpcStarted) { rpcStarted = true; renderRpc(); checkAll(); startTicker(); }
     if (h === "add") $("#add").scrollIntoView();
     else if (VIEWS.includes(h)) {
