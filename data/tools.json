@@ -949,7 +949,8 @@
         "app": "https://xdcdomains.xyz/"
       },
       "icon": "icons/xdcdomains-xyz.png",
-      "linkFails": 1
+      "linkFails": 2,
+      "linkStatus": "dead"
     },
     {
       "id": "tradefi-network",
@@ -1105,8 +1106,7 @@
       "links": {
         "app": "https://asterizm.io/"
       },
-      "icon": "icons/asterizm-io.png",
-      "linkFails": 1
+      "icon": "icons/asterizm-io.png"
     },
     {
       "id": "xdc-zero",
@@ -1785,7 +1785,8 @@
       "links": {
         "app": "https://redcurry.co/"
       },
-      "icon": "icons/redcurry-co.png"
+      "icon": "icons/redcurry-co.png",
+      "linkFails": 1
     },
     {
       "id": "scenium",
@@ -2462,7 +2463,8 @@
       "links": {
         "app": "https://app.freewallet.org/auth/registration"
       },
-      "linkFails": 1
+      "linkFails": 2,
+      "linkStatus": "dead"
     },
     {
       "id": "onto",
@@ -2618,7 +2620,8 @@
       "links": {
         "app": "https://bitfi.com/order"
       },
-      "icon": "icons/bitfi-com.png"
+      "icon": "icons/bitfi-com.png",
+      "linkFails": 1
     },
     {
       "id": "arculus",

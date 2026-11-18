@@ -972,7 +972,8 @@
       "source": "plugin.global",
       "author": "Plugin",
       "archived": false,
-      "linkFails": 1
+      "linkFails": 2,
+      "linkStatus": "dead"
     },
     {
       "title": "Plugin FAQ / Knowledge Bytes",
@@ -981,7 +982,8 @@
       "source": "plugin.global",
       "author": "Plugin",
       "archived": false,
-      "linkFails": 1
+      "linkFails": 2,
+      "linkStatus": "dead"
     },
     {
       "title": "Plugin node installation (older docs)",

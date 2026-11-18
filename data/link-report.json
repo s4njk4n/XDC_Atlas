@@ -1,18 +1,18 @@
 {
-  "checked": "2026-11-11T09:51:47+00:00",
+  "checked": "2026-11-18T10:45:36+00:00",
   "dead": [
     {
       "type": "tool",
       "name": "XDC Web3 Domains",
       "url": "https://xdcdomains.xyz/",
       "error": 404,
-      "consecutiveFails": 1
+      "consecutiveFails": 2
     },
     {
       "type": "tool",
-      "name": "Asterizm",
-      "url": "https://asterizm.io/",
-      "error": 522,
+      "name": "Redcurry",
+      "url": "https://redcurry.co/",
+      "error": 404,
       "consecutiveFails": 1
     },
     {
@@ -20,6 +20,13 @@
       "name": "Freewallet",
       "url": "https://app.freewallet.org/auth/registration",
       "error": 522,
+      "consecutiveFails": 2
+    },
+    {
+      "type": "tool",
+      "name": "Bitfi",
+      "url": "https://bitfi.com/order",
+      "error": "TimeoutError",
       "consecutiveFails": 1
     },
     {
@@ -27,14 +34,14 @@
       "name": "Plugin oracle documentation",
       "url": "https://plugin.global/developers/docs.html",
       "error": 404,
-      "consecutiveFails": 1
+      "consecutiveFails": 2
     },
     {
       "type": "article",
       "name": "Plugin FAQ / Knowledge Bytes",
       "url": "https://knowledge.plugin.global/index.html",
       "error": 404,
-      "consecutiveFails": 1
+      "consecutiveFails": 2
     }
   ],
   "blocked": [
@@ -48,6 +55,12 @@
       "type": "tool",
       "name": "xdc-connect",
       "url": "https://www.npmjs.com/package/xdc-connect",
+      "status": 403
+    },
+    {
+      "type": "tool",
+      "name": "Kinesis",
+      "url": "https://kinesis.money/",
       "status": 403
     },
     {
